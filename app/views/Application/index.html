@@ -1,4 +1,34 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<h1>Coming soon: TBP Minerva!</h1>
+#{if allBooks.size()}
+  <div class="all-books">
+    <h3>All Books</h3>
+    <table border="0" cellpadding ="5">
+      <tr>
+        <td><b>SKU</b></td>
+        <td><b>TITLE</b></td>
+        <td><b>AUTHOR</b></td>
+        <td><b>ISBN</b></td>
+        <td><b>BUY</b></td>
+        <td><b>SELL</b></td>
+      </tr>
+      #{list items:allBooks, as:'book'}
+        <tr>
+          <td>${book.sku}</td>
+          <td>${book.title}</td>
+          <td>${book.author}</td>
+          <td>${book.isbn}</td>
+          <td>${book.purchasePrice}</td>
+          <td>${book.salePrice}</td>
+        </tr>
+      #{/list}
+    </table>
+  </div>
+#{/if}
+
+#{else}
+  <div class="empty">
+    <h3>No books!</h3>
+  </div>
+#{/else}
