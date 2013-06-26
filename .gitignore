@@ -1,0 +1,18 @@
+# Ignore all dotfiles except .gitignore
+.*
+!.gitignore
+
+# Ignore working directories
+data
+db
+eclipse
+lib
+log
+logs
+misc
+modules
+precompiled
+target
+temp
+test-result
+tmp
