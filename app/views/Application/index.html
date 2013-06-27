@@ -1,34 +1,67 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Books' /}
 
-#{if allBooks.size()}
-  <div class="all-books">
+<div class="container">
+  #{if allBooks.size()}
     <h3>All Books</h3>
-    <table border="0" cellpadding ="5">
-      <tr>
-        <td><b>SKU</b></td>
-        <td><b>TITLE</b></td>
-        <td><b>AUTHOR</b></td>
-        <td><b>ISBN</b></td>
-        <td><b>BUY</b></td>
-        <td><b>SELL</b></td>
-      </tr>
-      #{list items:allBooks, as:'book'}
-        <tr>
-          <td>${book.sku}</td>
-          <td>${book.title}</td>
-          <td>${book.author}</td>
-          <td>${book.isbn}</td>
-          <td>${book.purchasePrice}</td>
-          <td>${book.salePrice}</td>
-        </tr>
-      #{/list}
-    </table>
-  </div>
-#{/if}
-
-#{else}
-  <div class="empty">
+    <div class="row">
+	  <div class="span12">
+	    <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="hidden-phone"></th>
+              <th>CODE</th>
+              <th>TITLE</th>
+              <th>AUTHOR</th>
+              <th class="hidden-phone"><div class="text-center">ISBN</div></th>
+              <th class="hidden-phone"><div class="text-center">BUY</div></th>
+              <th class="hidden-phone"><div class="text-center">SELL</div></th>
+              <th><div class="text-center"></div></th>
+            </tr>
+          </thead>
+            
+          <tbody>
+            #{list items:allBooks, as:'book'}
+              <tr>
+                <td class="hidden-phone">
+                  <div class="text-center">
+                    <a href="">
+                      <img src=${book.getPhotoUrl()} class="img-polaroid" alt="${book.title}" title="${book.title}">
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a href="">${book.sku}</a>
+                </td>
+                <td>
+                  <a href="">${book.title}</a>
+                </td>
+                <td>
+                  <a href="">${book.author}</a>
+                </td>
+                <td class="hidden-phone">
+                  <div class="text-center">${book.isbn}</div>
+                </td>
+                <td class="hidden-phone">
+                  <div class="text-center">${book.getCurrencyFormatPuchasePrice()}</div>
+                </td>
+                <td class="hidden-phone">
+                  <div class="text-center">${book.getCurrencyFormatSalePrice()}</div>
+                </td>
+                <td>
+                  <a href="" class="btn btn-info">
+                    <i class="icon-bar-chart"></i>
+                  </a>
+                </td>
+              </tr>
+            #{/list}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  #{/if}
+  
+  #{else}
     <h3>No books!</h3>
-  </div>
-#{/else}
+  #{/else}
+</div>

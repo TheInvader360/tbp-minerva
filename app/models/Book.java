@@ -20,4 +20,19 @@ public class Book extends Model {
 		this.purchasePrice = purchasePrice;
 		this.salePrice = salePrice;
 	}
+	
+	public String getPhotoUrl() {
+		String url = "http://images.thebookpeople.co.uk/images/books/thumbnail/"+sku+".jpg";		
+		return url;
+	}
+	
+	public String getCurrencyFormatPuchasePrice() {
+		// TODO - Force result to be to two decimal places e.g. £1.99, £2.50, £5.00, etc
+		return "£"+purchasePrice;
+	}
+
+	public String getCurrencyFormatSalePrice() {
+		// TODO - Force result to be to two decimal places e.g. £1.99, £2.50, £5.00, etc
+		return "£"+salePrice;
+	}
 }
