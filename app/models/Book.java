@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import play.db.jpa.*;
+import utils.CurrencyUtils;
 
 @Entity
 public class Book extends Model {
@@ -27,12 +28,10 @@ public class Book extends Model {
 	}
 	
 	public String getCurrencyFormatPuchasePrice() {
-		// TODO - Force result to be to two decimal places e.g. £1.99, £2.50, £5.00, etc
-		return "£"+purchasePrice;
+		return CurrencyUtils.currencyFormat(purchasePrice, "GBP");
 	}
 
 	public String getCurrencyFormatSalePrice() {
-		// TODO - Force result to be to two decimal places e.g. £1.99, £2.50, £5.00, etc
-		return "£"+salePrice;
+		return CurrencyUtils.currencyFormat(salePrice, "GBP");
 	}
 }
