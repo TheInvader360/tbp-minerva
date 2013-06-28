@@ -25,16 +25,16 @@
               <tr>
                 <td class="hidden-phone">
                   <div class="text-center">
-                    <a href="">
+                    <a href="@{Application.showBookDetail(book.isbn)}">
                       <img src=${book.getPhotoUrl()} class="img-polaroid" alt="${book.title}" title="${book.title}">
                     </a>
                   </div>
                 </td>
                 <td>
-                  <a href="">${book.sku}</a>
+                  <a href="@{Application.showBookDetail(book.isbn)}">${book.sku}</a>
                 </td>
                 <td>
-                  <a href="">${book.title}</a>
+                  <a href="@{Application.showBookDetail(book.isbn)}">${book.title}</a>
                 </td>
                 <td>
                   <a href="">${book.author}</a>
@@ -49,7 +49,7 @@
                   <div class="text-center">${book.getCurrencyFormatSalePrice()}</div>
                 </td>
                 <td>
-                  <a href="" class="btn btn-info">
+                  <a href="@{Application.showBookDetail(book.isbn)}" class="btn btn-info">
                     <i class="icon-bar-chart"></i>
                   </a>
                 </td>

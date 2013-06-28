@@ -11,4 +11,10 @@ public class Application extends Controller {
 		List<Book> allBooks = Book.find("order by sku asc").fetch();
 		render(allBooks);
 	}
+	
+	public static void showBookDetail(String isbn) {
+		// isbn is unique (one per product) - fetching the 'first of one' is safe
+		Book book = Book.find("isbn = ?", isbn).first();
+		render(book);
+	}
 }
