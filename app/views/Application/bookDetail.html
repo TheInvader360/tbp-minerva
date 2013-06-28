@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'Minerva - ' + book.title /}
+
+<div class="container">
+  <div class="well">
+    <div class="row">
+      <div class="span12">
+      <img src=${book.getPhotoUrl()} class="img-polaroid" alt="${book.title}" title="${book.title}">
+      <p>
+      <p>
+      ${book.sku}
+      <p>
+      ${book.title}
+      <p>
+      <a href="@{Application.listByAuthor(book.author)}">${book.author}</a>
+      <p>
+      ${book.isbn}
+      <p>
+      ${book.getCurrencyFormatPuchasePrice()}
+      <p>
+      ${book.getCurrencyFormatSalePrice()}
+      </div>
+    </div>
+  </div>
+</div>

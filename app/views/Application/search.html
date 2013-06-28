@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Search' /}
+
+<div class="container">
+  <p>
+    <div class="hero-unit">
+      <h1>TBP Minerva</h1>
+      <p>
+        <h3><em>Wisdom is found only in truth...</em></h3>
+      <p>
+      <form class="form-search text-left" action="@{Application.search()}" method="GET">
+        <div class="input-append">
+          <input type="text" class="search-query input-xxlarge" name="searchQuery" placeholder="Title/Author/ISBN/SKU">
+          <button type="submit" class="btn">Search</button>
+        </div>
+      </form>
+    </div>
+  </p>
+  <p class="text-right">
+    <small>Or you can simply <a href="@{Application.listAllBooks()}">view all books!</a> :)</small>
+  </p>
+</div>

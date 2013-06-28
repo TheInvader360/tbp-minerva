@@ -15,6 +15,14 @@
 	<script src="@{'/public/javascripts/bootstrap.js'}" type="text/javascript" charset="${_response_encoding}"></script>
   </head>
   <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <a class="brand" href="@{Application.index()}">
+          <img src="/public/img/logo.png">
+        </a>
+      </div>
+    </div>
+    
     #{doLayout /}
   </body>
 </html>

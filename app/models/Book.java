@@ -2,13 +2,19 @@ package models;
 
 import javax.persistence.*;
 import play.db.jpa.*;
+import play.modules.search.*;
 import utils.CurrencyUtils;
 
 @Entity
+@Indexed
 public class Book extends Model {
+	@Field
 	public String title;
+	@Field
 	public String author;
+	@Field
 	public String isbn;
+	@Field
 	public String sku;
 	public double purchasePrice;
 	public double salePrice;

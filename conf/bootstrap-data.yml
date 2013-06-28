@@ -32,3 +32,11 @@ Book(jamb):
   sku: JAMB
   purchasePrice: 2.55
   salePrice: 6.99
+
+Book(bosc):
+  title: Michael Connelly - The Bosch Collection
+  author: Michael Connelly
+  isbn: 9781407235585
+  sku: BOSC
+  purchasePrice: 4.63
+  salePrice: 9.99

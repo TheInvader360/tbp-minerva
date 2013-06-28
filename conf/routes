@@ -5,6 +5,11 @@
 # Home page
 GET     /                                       Application.index
 
+# Booklists
+GET     /booklist/all/                          Application.listAllBooks
+GET     /booklist/author/{author}               Application.listByAuthor
+
+# Book Detail
 GET     /bookdetail/{isbn}                      Application.showBookDetail
 
 # Ignore favicon requests
