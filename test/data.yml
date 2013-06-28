@@ -32,3 +32,28 @@ Book(jamb):
   sku: JAMB
   purchasePrice: 2.55
   salePrice: 6.99
+
+SalesSummary(sh1):
+  book: tbld
+  summaryDate: 2010-01-01
+  salesQuantity: 10
+
+SalesSummary(sh2):
+  book: tbld
+  summaryDate: 2010-02-01
+  salesQuantity: 12
+
+SalesSummary(sh3):
+  book: tbld
+  summaryDate: 2010-03-01
+  salesQuantity: 15
+
+SalesSummary(sh4):
+  book: tbld
+  summaryDate: 2010-04-01
+  salesQuantity: 14
+
+SalesSummary(sh5):
+  book: tbld
+  summaryDate: 2010-05-01
+  salesQuantity: 11

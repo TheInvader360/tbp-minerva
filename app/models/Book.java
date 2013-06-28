@@ -4,6 +4,7 @@ import javax.persistence.*;
 import play.db.jpa.*;
 import play.modules.search.*;
 import utils.CurrencyUtils;
+import java.util.*;
 
 @Entity
 @Indexed
@@ -18,6 +19,8 @@ public class Book extends Model {
 	public String sku;
 	public double purchasePrice;
 	public double salePrice;
+	@OneToMany(mappedBy="book", cascade=CascadeType.ALL)
+	public List<SalesSummary> salesSummaries;
 	
 	public Book(String title, String author, String isbn, String sku, double purchasePrice, double salePrice) {
 		this.title = title;
@@ -26,6 +29,14 @@ public class Book extends Model {
 		this.sku = sku;
 		this.purchasePrice = purchasePrice;
 		this.salePrice = salePrice;
+		this.salesSummaries = new ArrayList<SalesSummary>();
+	}
+	
+	public Book addSalesHistory(Date date, int salesQuantity) {
+	    SalesSummary newSalesSummary = new SalesSummary(this, date, salesQuantity).save();
+	    this.salesSummaries.add(newSalesSummary);
+	    this.save();
+	    return this;
 	}
 	
 	public String getPhotoUrl() {
