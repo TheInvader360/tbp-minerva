@@ -5,9 +5,6 @@
 # Home page
 GET     /                                       Application.index
 
-# Chart (temporary)
-GET     /chart/                                 Application.chart
-
 # Booklists
 GET     /booklist/all/                          Application.listAllBooks
 GET     /booklist/author/{author}               Application.listByAuthor

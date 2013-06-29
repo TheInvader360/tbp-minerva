@@ -12,11 +12,6 @@ public class Application extends Controller {
 		renderTemplate("Application/search.html");
 	}
 
-	// TODO - this is just temporary, remove later! (don't forget to remove chart route and chart.html too...)
-	public static void chart() {
-		render();
-	}
-
 	public static void listAllBooks() {
 		List<Book> books = Book.find("order by sku asc").fetch();
 		renderTemplate("Application/bookList.html", books);

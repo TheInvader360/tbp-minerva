@@ -3,8 +3,7 @@
 
 <div class="container">
 
-  <div class="well span8">
-    <div class="tabbable tabs-left">
+    <div class="tabbable tabs-left span8">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab1" data-toggle="tab">Combined</a></li>
         <li><a href="#tab2" data-toggle="tab">Catalogue</a></li>
@@ -13,9 +12,14 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab1">
-          <p>
-            Sales Summary Rows: ${book.salesSummaries.size()}
-          </p>
+          <div class = "well">
+            <div id="chart"></div>
+          </div>
+          <div class = "well">
+            <p>
+              Sales Summary Rows: ${book.salesSummaries.size()}
+            </p>
+          </div>
         </div>
         <div class="tab-pane" id="tab2">
           <p>
@@ -43,7 +47,6 @@
         </div>
       </div>
     </div>
-  </div>
 
   <div class="well span2 text-right">
     <div class="row">
@@ -75,3 +78,62 @@
   </div>
 
 </div>
+	
+<script class="code" type="text/javascript">
+  $(document).ready(function () {
+    var data = [['2010-01-01 0:00AM', 1020], ['2010-02-01 0:00AM', 1080], ['2010-03-01 0:00AM', 1000], ['2010-04-01 0:00AM', 1150]];
+    plot = $.jqplot("chart", [data], {
+      // Turns on animation for all series in this plot.
+      animate: true,
+      // Will animate plot on calls to plot.replot({resetAxes:true})
+      animateReplot: true,
+      cursor: {
+        show: false,
+        zoom: false,
+        looseZoom: false,
+        showTooltip: true
+      },
+      series:[
+        {
+          rendererOptions: {
+            // speed up the animation a little bit.
+            // This is a number of milliseconds.
+            // Default for a line series is 2500.
+            animation: {
+              speed: 2000
+            }
+          }
+        }
+      ],
+      axesDefaults: {
+        pad: 0
+      },
+      axes: {
+        xaxis:{
+          renderer:$.jqplot.DateAxisRenderer, 
+          tickOptions:{formatString:'%b %y'},
+          tickInterval:'1 month',
+          min: data[0][0],
+          max: data[0][data[0].length]
+        },
+        yaxis: {
+          rendererOptions: {
+            forceTickAt0: false
+          }
+        },
+      },
+      highlighter: {
+        show: true, 
+        showLabel: true, 
+        tooltipAxes: 'y',
+        sizeAdjust: 7.5 , tooltipLocation : 'n'
+      }
+    });
+  });
+  $(window).bind('resize', function(event, ui) {
+    plot.replot({resetAxes:false});
+  });
+</script>
+<script class="include" type="text/javascript" src="@{'/public/javascripts/jqplot/jquery.jqplot.min.js'}"></script>
+<script class="include" type="text/javascript" src="@{'/public/javascripts/jqplot/plugins/jqplot.dateAxisRenderer.min.js'}"></script>
+<script class="include" type="text/javascript" src="@{'/public/javascripts/jqplot/plugins/jqplot.highlighter.min.js'}"></script>
