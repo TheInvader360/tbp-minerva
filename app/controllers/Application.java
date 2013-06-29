@@ -37,6 +37,6 @@ public class Application extends Controller {
 	public static void showBookDetail(String isbn) {
 		// isbn is unique (one per product) - fetching the 'first of one' is safe
 		Book book = Book.find("isbn = ?", isbn).first();
-		renderTemplate("Application/bookDetail.html", book);
+		renderTemplate("Application/bookDetail.html", book);		
 	}
 }

@@ -3,7 +3,7 @@
 
 <div class="container">
 
-    <div class="tabbable tabs-left span8">
+    <div class="tabbable tabs-left span9">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab1" data-toggle="tab">Combined</a></li>
         <li><a href="#tab2" data-toggle="tab">Catalogue</a></li>
@@ -11,17 +11,22 @@
         <li><a href="#tab4" data-toggle="tab">Internet</a></li>
       </ul>
       <div class="tab-content">
-        <div class="tab-pane active" id="tab1">
+        <div class="tab-pane fade in active" id="tab1">
           <div class = "well">
-            <div id="chart"></div>
+            <div id="chart" style="height:200px;"></div>
           </div>
           <div class = "well">
             <p>
               Sales Summary Rows: ${book.salesSummaries.size()}
+              <p>
+                #{list items:book.salesSummaries, as:'salesSummary'}
+                  ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
+                #{/list}
+              </p>
             </p>
           </div>
         </div>
-        <div class="tab-pane" id="tab2">
+        <div class="tab-pane fade in" id="tab2">
           <p>
             Sed dapibus vel enim non laoreet. Vivamus quam diam, scelerisque vitae urna nec, hendrerit laoreet sapien. Donec leo metus, laoreet et convallis sed, gravida et risus. Integer pulvinar elit sed pretium aliquet. Maecenas ac egestas tellus. Proin eget lorem nec est lacinia tempor. Donec imperdiet sodales aliquet. Morbi eget tincidunt odio. Maecenas felis ipsum, sodales vitae aliquet et, tristique vitae lectus. Suspendisse ut felis quis eros congue aliquet in et nibh. Curabitur hendrerit a justo quis porta. Ut venenatis egestas adipiscing. Vestibulum metus nisl, consectetur et sagittis eleifend, pretium ut nisi. Nam eros felis, rutrum quis adipiscing id, mattis nec mauris. Integer mattis metus eu ultricies blandit. Pellentesque condimentum posuere mauris.
           </p>
@@ -29,7 +34,7 @@
             Phasellus eget arcu imperdiet, interdum lacus sit amet, faucibus lorem. Vestibulum nec mi nec dolor tincidunt tincidunt in non justo. Praesent suscipit auctor vulputate. Ut nec nulla urna. Etiam sed diam quis purus cursus pretium sed vitae nisl. Proin luctus sit amet tellus in scelerisque. Ut non neque sed arcu eleifend rutrum et in ante. Suspendisse suscipit, libero sed tristique gravida, nibh sapien convallis quam, nec tempus risus erat non nisi. Duis aliquam non est ut laoreet. Maecenas et orci sem. Mauris eget massa sed lacus auctor ullamcorper. Morbi sagittis ac mi a scelerisque. Donec in eros ac justo mattis condimentum cursus eu turpis. Nullam semper lectus hendrerit ante pharetra, sit amet pellentesque sem egestas.
           </p>
         </div>
-        <div class="tab-pane" id="tab3">
+        <div class="tab-pane fade in" id="tab3">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium elit ut ipsum rhoncus ultrices. Proin convallis laoreet accumsan. Curabitur a semper nisi, nec interdum metus. Pellentesque dignissim mi porttitor dictum egestas. Nulla id feugiat erat, a egestas nulla. Integer et varius ipsum. Vivamus placerat rutrum dui. Fusce orci magna, venenatis ut massa et, euismod ornare nulla. Cras sagittis dictum turpis. Aenean quis odio sed neque tempor placerat. Duis in rhoncus velit.
           </p>
@@ -37,7 +42,7 @@
             Integer diam est, malesuada nec egestas in, tempus sit amet dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin turpis metus, facilisis eget placerat non, consectetur sit amet orci. Maecenas faucibus sem et ligula rhoncus, sit amet consectetur felis pretium. Nam eget sem neque. Curabitur et sagittis nulla. Integer feugiat justo ut libero pellentesque ornare. Mauris sit amet tristique urna. Donec massa ligula, adipiscing a iaculis non, rhoncus et elit. Pellentesque eu leo eget leo tincidunt venenatis. Cras vestibulum tortor id arcu tincidunt, vitae eleifend lacus rhoncus. Cras mattis bibendum odio, eu viverra erat tincidunt sollicitudin. Mauris eros dolor, porttitor at ultrices non, molestie eget nisi. Vivamus auctor nisi at felis tempus viverra.
           </p>
         </div>
-        <div class="tab-pane" id="tab4">
+        <div class="tab-pane fade in" id="tab4">
           <p>
             Sed dapibus vel enim non laoreet. Vivamus quam diam, scelerisque vitae urna nec, hendrerit laoreet sapien. Donec leo metus, laoreet et convallis sed, gravida et risus. Integer pulvinar elit sed pretium aliquet. Maecenas ac egestas tellus. Proin eget lorem nec est lacinia tempor. Donec imperdiet sodales aliquet. Morbi eget tincidunt odio. Maecenas felis ipsum, sodales vitae aliquet et, tristique vitae lectus. Suspendisse ut felis quis eros congue aliquet in et nibh. Curabitur hendrerit a justo quis porta. Ut venenatis egestas adipiscing. Vestibulum metus nisl, consectetur et sagittis eleifend, pretium ut nisi. Nam eros felis, rutrum quis adipiscing id, mattis nec mauris. Integer mattis metus eu ultricies blandit. Pellentesque condimentum posuere mauris.
           </p>
@@ -81,7 +86,7 @@
 	
 <script class="code" type="text/javascript">
   $(document).ready(function () {
-    var data = [['2010-01-01 0:00AM', 1020], ['2010-02-01 0:00AM', 1080], ['2010-03-01 0:00AM', 1000], ['2010-04-01 0:00AM', 1150]];
+    var data = [${book.getChartData()}];
     plot = $.jqplot("chart", [data], {
       // Turns on animation for all series in this plot.
       animate: true,
@@ -114,12 +119,12 @@
           tickOptions:{formatString:'%b %y'},
           tickInterval:'1 month',
           min: data[0][0],
-          max: data[0][data[0].length]
+          max: data[0][data[0].length],
         },
         yaxis: {
           rendererOptions: {
-            forceTickAt0: false
-          }
+            forceTickAt0: true
+          },
         },
       },
       highlighter: {
