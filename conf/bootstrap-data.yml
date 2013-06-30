@@ -41,27 +41,37 @@ Book(bosc):
   purchasePrice: 4.63
   salePrice: 9.99
 
-SalesSummary(sh1):
+SalesSummary(tbld-ss1):
   book: tbld
   summaryDate: 2010-01-01
   salesQuantity: 10
 
-SalesSummary(sh2):
+SalesSummary(tbld-ss2):
   book: tbld
   summaryDate: 2010-02-01
   salesQuantity: 12
 
-SalesSummary(sh3):
+SalesSummary(tbld-ss3):
   book: tbld
   summaryDate: 2010-03-01
   salesQuantity: 15
 
-SalesSummary(sh4):
+SalesSummary(tbld-ss4):
   book: tbld
   summaryDate: 2010-04-01
   salesQuantity: 14
 
-SalesSummary(sh5):
+SalesSummary(tbld-ss5):
   book: tbld
   summaryDate: 2010-05-01
   salesQuantity: 11
+
+SalesSummary(tbld-ss6):
+  book: tbld
+  summaryDate: 2010-06-01
+  salesQuantity: 17
+
+SalesSummary(tbld-ss7):
+  book: tbld
+  summaryDate: 2010-07-01
+  salesQuantity: 4

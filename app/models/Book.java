@@ -56,7 +56,7 @@ public class Book extends Model {
 		// form and return a string that the chart script can make use of
 		String points = "";
 		for (int i = 0; i < salesSummaries.size(); i++) {
-			points = points+"['"+salesSummaries.get(i).summaryDate+"',"+salesSummaries.get(i).salesQuantity+"],";
+			points = points+"[\'"+salesSummaries.get(i).summaryDate+"\',"+salesSummaries.get(i).salesQuantity+"],";
 		}
 		return points;
 	}
