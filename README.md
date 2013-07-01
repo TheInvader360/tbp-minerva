@@ -21,6 +21,7 @@ windows shell
 
 * cd to application base dir
 * play install search-head
+* play dependencies
 * play eclipsify
 
 eclipse

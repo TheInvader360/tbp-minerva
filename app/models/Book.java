@@ -32,8 +32,8 @@ public class Book extends Model {
 		this.salesSummaries = new ArrayList<SalesSummary>();
 	}
 	
-	public Book addSalesHistory(Date date, int salesQuantity) {
-	    SalesSummary newSalesSummary = new SalesSummary(this, date, salesQuantity).save();
+	public Book addSalesHistory(Date date, int salesQuantity, String type) {
+	    SalesSummary newSalesSummary = new SalesSummary(this, date, salesQuantity, type).save();
 	    this.salesSummaries.add(newSalesSummary);
 	    this.save();
 	    return this;
@@ -52,12 +52,40 @@ public class Book extends Model {
 		return CurrencyUtils.currencyFormat(salePrice, "GBP");
 	}
 	
-	public String getChartData() {
-		// form and return a string that the chart script can make use of
+	public String getChartData(String chartType) {
 		String points = "";
-		for (int i = 0; i < salesSummaries.size(); i++) {
-			points = points+"[\'"+salesSummaries.get(i).summaryDate+"\',"+salesSummaries.get(i).salesQuantity+"],";
+		List<SalesSummary> list = new ArrayList<SalesSummary>();
+		
+		if (chartType == "all") {
+			// get all SalesSummary rows for this book
+			list = SalesSummary.find("book = ?", this).fetch();
 		}
+		else {
+			// get all SalesSummary rows of a particular type for this book
+			list = SalesSummary.find("type = ? and book = ?", chartType, this).fetch();
+		}
+
+		// populate a treemap (default sort by key asc) with list values (key:summaryDate / value:salesQuantity)
+		Map map = new TreeMap<Date, Integer>();
+		for (int i = 0; i < list.size(); i++) {
+			if (map.containsKey(list.get(i).summaryDate)) {
+				// if summaryDate already exists, sum the values
+				map.put(list.get(i).summaryDate, (Integer) map.get(list.get(i).summaryDate) + list.get(i).salesQuantity);
+			}
+			else {
+				// otherwise simply insert the key value pair
+				map.put(list.get(i).summaryDate, list.get(i).salesQuantity);
+			}
+		}
+
+		// form a string that the chart script can make use of
+		Set set = map.entrySet(); 
+		Iterator i = set.iterator(); 
+		while (i.hasNext()) {
+			Map.Entry me = (Map.Entry)i.next();
+			points = points+"[\'"+me.getKey()+"\',"+me.getValue()+"],";
+		}
+
 		return points;
 	}
 }

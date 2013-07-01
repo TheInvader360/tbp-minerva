@@ -11,10 +11,12 @@ public class SalesSummary extends Model {
     public Book book;
     public Date summaryDate;
     public int salesQuantity;
+    public String type;
     
-    public SalesSummary(Book book, Date summaryDate, int salesQuantity) {
+    public SalesSummary(Book book, Date summaryDate, int salesQuantity, String type) {
         this.book = book;
         this.summaryDate = summaryDate;
         this.salesQuantity = salesQuantity;
+        this.type = type;
     }
 }

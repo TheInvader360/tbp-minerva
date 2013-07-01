@@ -22,7 +22,7 @@
             Sales Summary Rows: ${book.salesSummaries.size()}
             <p>
               #{list items:book.salesSummaries, as:'salesSummary'}
-                ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
+                ${salesSummary.type} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
               #{/list}
             </p>
           </p>
@@ -96,16 +96,16 @@
     
     switch (chartType) {
       case 'all':
-        data = [${book.getChartData()}];
+        data = [${book.getChartData('all')}];
         break;
       case 'cat':
-        data = [['2000-01-01 00:00:00.0',0],['2000-02-01 00:00:00.0',5],['2000-03-01 00:00:00.0',10],['2000-04-01 00:00:00.0',15]];
+        data = [${book.getChartData('cat')}];
         break;
       case 'dir':
-        data = [['2002-05-01 00:00:00.0',4],['2002-06-01 00:00:00.0',6],['2002-07-01 00:00:00.0',4]];
+        data = [${book.getChartData('dir')}];
         break;
       case 'web':
-        data = [['2005-08-01 00:00:00.0',10],['2005-09-01 00:00:00.0',100]];
+        data = [${book.getChartData('web')}];
         break;
       default:
         data = [['1900-01-01 00:00:00.0',0]];

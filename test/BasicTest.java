@@ -30,9 +30,9 @@ public class BasicTest extends UnitTest {
 	    Book book = new Book("True Blood Collection", "Charlaine Harris", "9781407238876", "TBLD", 2.75, 5.00).save();
 	 
 	    // Create some SalesHistory
-	    new SalesSummary(book, new Date(), 14).save();
-	    new SalesSummary(book, new Date(), 16).save();
-	    new SalesSummary(book, new Date(), 10).save();
+	    new SalesSummary(book, new Date(), 14, "cat").save();
+	    new SalesSummary(book, new Date(), 16, "cat").save();
+	    new SalesSummary(book, new Date(), 10, "cat").save();
 	    
 	    // Retrieve all SalesHistory
 	    List<SalesSummary> bookSalesHistory = SalesSummary.find("byBook", book).fetch();
@@ -65,9 +65,9 @@ public class BasicTest extends UnitTest {
 	    Book book = new Book("True Blood Collection", "Charlaine Harris", "9781407238876", "TBLD", 2.75, 5.00).save();
 	 
 	    // Create some SalesHistory
-	    book.addSalesHistory(new Date(), 14);
-	    book.addSalesHistory(new Date(), 16);
-	    book.addSalesHistory(new Date(), 10);
+	    book.addSalesHistory(new Date(), 14, "cat");
+	    book.addSalesHistory(new Date(), 16, "cat");
+	    book.addSalesHistory(new Date(), 10, "cat");
 	    
 	    // Count things
 	    assertEquals(1, Book.count());
