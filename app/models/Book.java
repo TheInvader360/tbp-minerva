@@ -1,9 +1,13 @@
 package models;
 
 import javax.persistence.*;
+import javax.persistence.Query;
+
 import play.db.jpa.*;
 import play.modules.search.*;
 import utils.CurrencyUtils;
+
+import java.math.BigInteger;
 import java.util.*;
 
 @Entity
@@ -32,15 +36,8 @@ public class Book extends Model {
 		this.salesSummaries = new ArrayList<SalesSummary>();
 	}
 	
-	public Book addSalesHistory(Date date, int salesQuantity, String type) {
-	    SalesSummary newSalesSummary = new SalesSummary(this, date, salesQuantity, type).save();
-	    this.salesSummaries.add(newSalesSummary);
-	    this.save();
-	    return this;
-	}
-	
 	public String getPhotoUrl() {
-		String url = "http://images.thebookpeople.co.uk/images/books/thumbnail/"+sku+".jpg";		
+		String url = "//images.thebookpeople.co.uk/images/books/thumbnail/"+sku+".jpg";		
 		return url;
 	}
 	
@@ -62,7 +59,7 @@ public class Book extends Model {
 		}
 		else {
 			// get all SalesSummary rows of a particular type for this book
-			list = SalesSummary.find("type = ? and book = ?", chartType, this).fetch();
+			list = SalesSummary.find("salesChannel.tag = ? and book = ?", chartType, this).fetch();
 		}
 
 		// populate a treemap (default sort by key asc) with list values (key:summaryDate / value:salesQuantity)
@@ -87,5 +84,76 @@ public class Book extends Model {
 		}
 
 		return points;
+	}
+	
+	public int getTotalUnitSales() {
+		Query q = JPA.em().createQuery("SELECT SUM(ss.salesQuantity) FROM SalesSummary ss INNER JOIN ss.salesChannel sc WHERE book_id = "+this.id);
+		Long sum = (Long) q.getSingleResult();
+		if (sum == null) sum = 0l;
+		return sum.intValue();
+	}
+	
+	public double getTotalPurchaseCost() {
+		return getTotalUnitSales() * this.purchasePrice;
+	}
+	public String getCurrencyFormatTotalPurchaseCost() {
+		return CurrencyUtils.currencyFormat(getTotalPurchaseCost(), "GBP");
+	}
+	
+	public double getTotalSalesRevenue() {
+		return getTotalUnitSales() * this.salePrice;
+	}
+	public String getCurrencyFormatTotalSalesRevenue() {
+		return CurrencyUtils.currencyFormat(getTotalSalesRevenue(), "GBP");
+	}
+	
+	public double getCostsEstimate() {
+		return getCostsEstimate("cat") + getCostsEstimate("dir") + getCostsEstimate("web");
+	}
+	public String getCurrencyFormatCostsEstimate() {
+		return CurrencyUtils.currencyFormat(getCostsEstimate(), "GBP");
+	}
+	
+	public double getProfitLoss() {
+		return getTotalSalesRevenue() - (getTotalPurchaseCost() + getCostsEstimate());
+	}
+	public String getCurrencyFormatProfitLoss() {
+		return CurrencyUtils.currencyFormat(getProfitLoss(), "GBP");
+	}
+	
+	public int getTotalUnitSales(String channelTag) {
+		Query q = JPA.em().createQuery("SELECT SUM(ss.salesQuantity) FROM SalesSummary ss INNER JOIN ss.salesChannel sc WHERE sc.tag = '"+channelTag+"' AND book_id = "+this.id);
+		Long sum = (Long) q.getSingleResult();
+		if (sum == null) sum = 0l;
+		return sum.intValue();
+	}
+	
+	public double getTotalPurchaseCost(String channelTag) {
+		return getTotalUnitSales(channelTag) * this.purchasePrice;
+	}
+	public String getCurrencyFormatTotalPurchaseCost(String channelTag) {
+		return CurrencyUtils.currencyFormat(getTotalPurchaseCost(channelTag), "GBP");
+	}
+	
+	public double getTotalSalesRevenue(String channelTag) {
+		return getTotalUnitSales(channelTag) * this.salePrice;
+	}
+	public String getCurrencyFormatTotalSalesRevenue(String channelTag) {
+		return CurrencyUtils.currencyFormat(getTotalSalesRevenue(channelTag), "GBP");
+	}
+
+	public double getCostsEstimate(String channelTag) {
+		SalesChannel salesChannel = SalesChannel.find("byTag", channelTag).first();
+		return getTotalSalesRevenue(channelTag) * (salesChannel.costPercentage / 100);
+	}
+	public String getCurrencyFormatCostsEstimate(String channelTag) {
+		return CurrencyUtils.currencyFormat(getCostsEstimate(channelTag), "GBP");
+	}
+	
+	public double getProfitLoss(String channelTag) {
+		return getTotalSalesRevenue(channelTag) - (getTotalPurchaseCost(channelTag) + getCostsEstimate(channelTag));
+	}
+	public String getCurrencyFormatProfitLoss(String channelTag) {
+		return CurrencyUtils.currencyFormat(getProfitLoss(channelTag), "GBP");
 	}
 }

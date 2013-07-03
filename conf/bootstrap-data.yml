@@ -1,6 +1,18 @@
 # you describe your data using the YAML notation here
 # and then load them using Fixtures.load("bootstrap-data.yml")
 
+SalesChannel(cat):
+  tag: cat
+  costPercentage: 15
+
+SalesChannel(dir):
+  tag: dir
+  costPercentage: 20
+
+SalesChannel(web):
+  tag: web
+  costPercentage: 10
+
 Book(tbld):
   title: True Blood Collection
   author: Charlaine Harris
@@ -43,108 +55,108 @@ Book(bosc):
 
 SalesSummary(tbld-ss1):
   book: tbld
+  salesChannel: cat
   summaryDate: 2010-01-01
   salesQuantity: 10
-  type: cat
 
 SalesSummary(tbld-ss2):
   book: tbld
+  salesChannel: dir
   summaryDate: 2010-02-01
   salesQuantity: 12
-  type: dir
 
 SalesSummary(tbld-ss3):
   book: tbld
+  salesChannel: dir
   summaryDate: 2010-03-01
   salesQuantity: 15
-  type: dir
 
 SalesSummary(tbld-ss4):
   book: tbld
+  salesChannel: web
   summaryDate: 2010-04-01
   salesQuantity: 14
-  type: web
 
 SalesSummary(tbld-ss5):
   book: tbld
+  salesChannel: cat
   summaryDate: 2010-05-01
   salesQuantity: 11
-  type: cat
 
 SalesSummary(tbld-ss6):
   book: tbld
+  salesChannel: web
   summaryDate: 2010-06-01
   salesQuantity: 17
-  type: web
 
 SalesSummary(tbld-ss7):
   book: tbld
+  salesChannel: web
   summaryDate: 2010-07-01
   salesQuantity: 4
-  type: web
 
 SalesSummary(tbld-ss8):
   book: tbld
+  salesChannel: web
   summaryDate: 2010-07-01
   salesQuantity: 4
-  type: web
 
 SalesSummary(tbld-ss9):
   book: tbld
+  salesChannel: dir
   summaryDate: 2010-03-01
   salesQuantity: 3
-  type: dir
 
 SalesSummary(tbld-ss7):
   book: tbld
+  salesChannel: web
   summaryDate: 2010-03-01
   salesQuantity: 14
-  type: web
 
 SalesSummary(jamb-ss1):
   book: jamb
+  salesChannel: web
   summaryDate: 2010-01-01
   salesQuantity: 7
-  type: web
 
 SalesSummary(jamb-ss2):
   book: jamb
+  salesChannel: web
   summaryDate: 2010-04-01
   salesQuantity: 15
-  type: web
 
 SalesSummary(jamb-ss3):
   book: jamb
+  salesChannel: web
   summaryDate: 2010-03-01
   salesQuantity: 10
-  type: web
 
 SalesSummary(jamb-ss4):
   book: jamb
+  salesChannel: web
   summaryDate: 2010-03-01
   salesQuantity: 2
-  type: web
 
 SalesSummary(jamb-ss5):
   book: jamb
+  salesChannel: dir
   summaryDate: 2010-03-01
   salesQuantity: 17
-  type: dir
 
 SalesSummary(jamb-ss6):
   book: jamb
+  salesChannel: cat
   summaryDate: 2010-03-01
   salesQuantity: 1
-  type: cat
 
 SalesSummary(jamb-ss7):
   book: jamb
+  salesChannel: dir
   summaryDate: 2010-06-01
   salesQuantity: 20
-  type: dir
 
 SalesSummary(jamb-ss8):
   book: jamb
+  salesChannel: cat
   summaryDate: 2010-07-01
   salesQuantity: 3
-  type: cat

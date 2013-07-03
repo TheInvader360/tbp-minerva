@@ -19,38 +19,90 @@
       <div class="tab-pane fade in active" id="tab1">
         <div class = "well">
           <p>
+            Combined
+          </p>
+          <p>
+            Total Unit Sales: ${book.getTotalUnitSales()} <br>
+            Total Purchase Cost: ${book.getCurrencyFormatTotalPurchaseCost()} <br>
+            Total Sales Revenue: ${book.getCurrencyFormatTotalSalesRevenue()} <br>
+            Distribution and support cost estimate: ${book.getCurrencyFormatCostsEstimate()} <br>
+            Profit / Loss: ${book.getCurrencyFormatProfitLoss()}
+          </p>
+          <p>
             Sales Summary Rows: ${book.salesSummaries.size()}
-            <p>
-              #{list items:book.salesSummaries, as:'salesSummary'}
-                ${salesSummary.type} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
-              #{/list}
-            </p>
+          </p>
+          <p>
+            #{list items:book.salesSummaries, as:'salesSummary'}
+              ${salesSummary.salesChannel.tag} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
+            #{/list}
           </p>
         </div>
       </div>
       <div class="tab-pane fade in" id="tab2">
-        <p>
-          Sed dapibus vel enim non laoreet. Vivamus quam diam, scelerisque vitae urna nec, hendrerit laoreet sapien. Donec leo metus, laoreet et convallis sed, gravida et risus. Integer pulvinar elit sed pretium aliquet. Maecenas ac egestas tellus. Proin eget lorem nec est lacinia tempor. Donec imperdiet sodales aliquet. Morbi eget tincidunt odio. Maecenas felis ipsum, sodales vitae aliquet et, tristique vitae lectus. Suspendisse ut felis quis eros congue aliquet in et nibh. Curabitur hendrerit a justo quis porta. Ut venenatis egestas adipiscing. Vestibulum metus nisl, consectetur et sagittis eleifend, pretium ut nisi. Nam eros felis, rutrum quis adipiscing id, mattis nec mauris. Integer mattis metus eu ultricies blandit. Pellentesque condimentum posuere mauris.
-        </p>
-        <p>
-          Phasellus eget arcu imperdiet, interdum lacus sit amet, faucibus lorem. Vestibulum nec mi nec dolor tincidunt tincidunt in non justo. Praesent suscipit auctor vulputate. Ut nec nulla urna. Etiam sed diam quis purus cursus pretium sed vitae nisl. Proin luctus sit amet tellus in scelerisque. Ut non neque sed arcu eleifend rutrum et in ante. Suspendisse suscipit, libero sed tristique gravida, nibh sapien convallis quam, nec tempus risus erat non nisi. Duis aliquam non est ut laoreet. Maecenas et orci sem. Mauris eget massa sed lacus auctor ullamcorper. Morbi sagittis ac mi a scelerisque. Donec in eros ac justo mattis condimentum cursus eu turpis. Nullam semper lectus hendrerit ante pharetra, sit amet pellentesque sem egestas.
-        </p>
+        <div class = "well">
+          <p>
+            Catalogue
+          </p>
+          <p>
+            Total Unit Sales: ${book.getTotalUnitSales('cat')} <br>
+            Total Purchase Cost: ${book.getCurrencyFormatTotalPurchaseCost('cat')} <br>
+            Total Sales Revenue: ${book.getCurrencyFormatTotalSalesRevenue('cat')} <br>
+            Distribution and support cost estimate: ${book.getCurrencyFormatCostsEstimate('cat')} <br>
+            Profit / Loss: ${book.getCurrencyFormatProfitLoss('cat')}
+          </p>
+          <p>
+            Sales Summary Rows: ${book.salesSummaries.size()}
+          </p>
+          <p>
+            #{list items:book.salesSummaries, as:'salesSummary'}
+              ${salesSummary.salesChannel.tag} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
+            #{/list}
+          </p>
+        </div>
       </div>
       <div class="tab-pane fade in" id="tab3">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium elit ut ipsum rhoncus ultrices. Proin convallis laoreet accumsan. Curabitur a semper nisi, nec interdum metus. Pellentesque dignissim mi porttitor dictum egestas. Nulla id feugiat erat, a egestas nulla. Integer et varius ipsum. Vivamus placerat rutrum dui. Fusce orci magna, venenatis ut massa et, euismod ornare nulla. Cras sagittis dictum turpis. Aenean quis odio sed neque tempor placerat. Duis in rhoncus velit.
-        </p>
-        <p>
-          Integer diam est, malesuada nec egestas in, tempus sit amet dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin turpis metus, facilisis eget placerat non, consectetur sit amet orci. Maecenas faucibus sem et ligula rhoncus, sit amet consectetur felis pretium. Nam eget sem neque. Curabitur et sagittis nulla. Integer feugiat justo ut libero pellentesque ornare. Mauris sit amet tristique urna. Donec massa ligula, adipiscing a iaculis non, rhoncus et elit. Pellentesque eu leo eget leo tincidunt venenatis. Cras vestibulum tortor id arcu tincidunt, vitae eleifend lacus rhoncus. Cras mattis bibendum odio, eu viverra erat tincidunt sollicitudin. Mauris eros dolor, porttitor at ultrices non, molestie eget nisi. Vivamus auctor nisi at felis tempus viverra.
-        </p>
+        <div class = "well">
+          <p>
+            Direct
+          </p>
+          <p>
+            Total Unit Sales: ${book.getTotalUnitSales('dir')} <br>
+            Total Purchase Cost: ${book.getCurrencyFormatTotalPurchaseCost('dir')} <br>
+            Total Sales Revenue: ${book.getCurrencyFormatTotalSalesRevenue('dir')} <br>
+            Distribution and support cost estimate: ${book.getCurrencyFormatCostsEstimate('dir')} <br>
+            Profit / Loss: ${book.getCurrencyFormatProfitLoss('dir')}
+          </p>
+          <p>
+            Sales Summary Rows: ${book.salesSummaries.size()}
+          </p>
+          <p>
+            #{list items:book.salesSummaries, as:'salesSummary'}
+              ${salesSummary.salesChannel.tag} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
+            #{/list}
+          </p>
+        </div>
       </div>
       <div class="tab-pane fade in" id="tab4">
-        <p>
-          Sed dapibus vel enim non laoreet. Vivamus quam diam, scelerisque vitae urna nec, hendrerit laoreet sapien. Donec leo metus, laoreet et convallis sed, gravida et risus. Integer pulvinar elit sed pretium aliquet. Maecenas ac egestas tellus. Proin eget lorem nec est lacinia tempor. Donec imperdiet sodales aliquet. Morbi eget tincidunt odio. Maecenas felis ipsum, sodales vitae aliquet et, tristique vitae lectus. Suspendisse ut felis quis eros congue aliquet in et nibh. Curabitur hendrerit a justo quis porta. Ut venenatis egestas adipiscing. Vestibulum metus nisl, consectetur et sagittis eleifend, pretium ut nisi. Nam eros felis, rutrum quis adipiscing id, mattis nec mauris. Integer mattis metus eu ultricies blandit. Pellentesque condimentum posuere mauris.
-        </p>
-        <p>
-          Phasellus eget arcu imperdiet, interdum lacus sit amet, faucibus lorem. Vestibulum nec mi nec dolor tincidunt tincidunt in non justo. Praesent suscipit auctor vulputate. Ut nec nulla urna. Etiam sed diam quis purus cursus pretium sed vitae nisl. Proin luctus sit amet tellus in scelerisque. Ut non neque sed arcu eleifend rutrum et in ante. Suspendisse suscipit, libero sed tristique gravida, nibh sapien convallis quam, nec tempus risus erat non nisi. Duis aliquam non est ut laoreet. Maecenas et orci sem. Mauris eget massa sed lacus auctor ullamcorper. Morbi sagittis ac mi a scelerisque. Donec in eros ac justo mattis condimentum cursus eu turpis. Nullam semper lectus hendrerit ante pharetra, sit amet pellentesque sem egestas.
-        </p>
+        <div class = "well">
+          <p>
+            Internet
+          </p>
+          <p>
+            Total Unit Sales: ${book.getTotalUnitSales('web')} <br>
+            Total Purchase Cost: ${book.getCurrencyFormatTotalPurchaseCost('web')} <br>
+            Total Sales Revenue: ${book.getCurrencyFormatTotalSalesRevenue('web')} <br>
+            Distribution and support cost estimate: ${book.getCurrencyFormatCostsEstimate('web')} <br>
+            Profit / Loss: ${book.getCurrencyFormatProfitLoss('web')}
+          </p>
+          <p>
+            Sales Summary Rows: ${book.salesSummaries.size()}
+          </p>
+          <p>
+            #{list items:book.salesSummaries, as:'salesSummary'}
+              ${salesSummary.salesChannel.tag} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
+            #{/list}
+          </p>
+        </div>
       </div>
     </div>
   </div>

@@ -9,14 +9,15 @@ import play.db.jpa.*;
 public class SalesSummary extends Model {
     @ManyToOne
     public Book book;
+    @ManyToOne
+    public SalesChannel salesChannel;
     public Date summaryDate;
     public int salesQuantity;
-    public String type;
     
-    public SalesSummary(Book book, Date summaryDate, int salesQuantity, String type) {
+    public SalesSummary(Book book, SalesChannel salesChannel, Date summaryDate, int salesQuantity) {
         this.book = book;
+        this.salesChannel = salesChannel;
         this.summaryDate = summaryDate;
         this.salesQuantity = salesQuantity;
-        this.type = type;
     }
 }
