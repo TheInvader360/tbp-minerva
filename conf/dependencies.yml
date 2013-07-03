@@ -3,3 +3,4 @@
 require:
     - play
     - play -> search head
+    - play -> crud

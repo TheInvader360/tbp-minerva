@@ -1,3 +1,15 @@
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
+title=Title
+author=Author
+isbn=ISBN
+sku=Product Code
+purchasePrice=Purchase Price
+salePrice=Sale Price
+name=Name
+tag=Tag
+book=Book
+salesChannel=Sales Channel
+summaryDate=Summary Date
+salesQuantity=Units Sold

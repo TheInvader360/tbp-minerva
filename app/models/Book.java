@@ -3,6 +3,7 @@ package models;
 import javax.persistence.*;
 import javax.persistence.Query;
 
+import play.data.validation.Required;
 import play.db.jpa.*;
 import play.modules.search.*;
 import utils.CurrencyUtils;
@@ -13,12 +14,15 @@ import java.util.*;
 @Indexed
 public class Book extends Model {
 	@Field
+	@Required
 	public String title;
 	@Field
 	public String author;
 	@Field
+	@Required
 	public String isbn;
 	@Field
+	@Required
 	public String sku;
 	public double purchasePrice;
 	public double salePrice;
@@ -154,5 +158,9 @@ public class Book extends Model {
 	}
 	public String getCurrencyFormatProfit(String channelTag) {
 		return CurrencyUtils.currencyFormat(getProfit(channelTag), "GBP");
+	}
+	
+	public String toString() {
+	    return sku+" - "+title;
 	}
 }
