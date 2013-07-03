@@ -53,110 +53,542 @@ Book(bosc):
   purchasePrice: 4.63
   salePrice: 9.99
 
-SalesSummary(tbld-ss1):
+SalesSummary(tbld-cat-ss1):
   book: tbld
   salesChannel: cat
-  summaryDate: 2010-01-01
-  salesQuantity: 10
+  summaryDate: 2013-01-01
+  salesQuantity: 1003
 
-SalesSummary(tbld-ss2):
-  book: tbld
-  salesChannel: dir
-  summaryDate: 2010-02-01
-  salesQuantity: 12
-
-SalesSummary(tbld-ss3):
-  book: tbld
-  salesChannel: dir
-  summaryDate: 2010-03-01
-  salesQuantity: 15
-
-SalesSummary(tbld-ss4):
-  book: tbld
-  salesChannel: web
-  summaryDate: 2010-04-01
-  salesQuantity: 14
-
-SalesSummary(tbld-ss5):
+SalesSummary(tbld-cat-ss2):
   book: tbld
   salesChannel: cat
-  summaryDate: 2010-05-01
-  salesQuantity: 11
+  summaryDate: 2013-02-01
+  salesQuantity: 1323
 
-SalesSummary(tbld-ss6):
+SalesSummary(tbld-cat-ss3):
   book: tbld
-  salesChannel: web
-  summaryDate: 2010-06-01
-  salesQuantity: 17
+  salesChannel: cat
+  summaryDate: 2013-03-01
+  salesQuantity: 1222
 
-SalesSummary(tbld-ss7):
+SalesSummary(tbld-cat-ss4):
   book: tbld
-  salesChannel: web
-  summaryDate: 2010-07-01
-  salesQuantity: 4
+  salesChannel: cat
+  summaryDate: 2013-04-01
+  salesQuantity: 1141
 
-SalesSummary(tbld-ss8):
+SalesSummary(tbld-cat-ss5):
   book: tbld
-  salesChannel: web
-  summaryDate: 2010-07-01
-  salesQuantity: 4
+  salesChannel: cat
+  summaryDate: 2013-05-01
+  salesQuantity: 864
 
-SalesSummary(tbld-ss9):
+SalesSummary(tbld-cat-ss6):
+  book: tbld
+  salesChannel: cat
+  summaryDate: 2013-06-01
+  salesQuantity: 926
+
+SalesSummary(tbld-dir-ss1):
   book: tbld
   salesChannel: dir
-  summaryDate: 2010-03-01
-  salesQuantity: 3
+  summaryDate: 2013-01-01
+  salesQuantity: 568
 
-SalesSummary(tbld-ss7):
+SalesSummary(tbld-dir-ss2):
+  book: tbld
+  salesChannel: dir
+  summaryDate: 2013-02-01
+  salesQuantity: 2036
+
+SalesSummary(tbld-dir-ss3):
+  book: tbld
+  salesChannel: dir
+  summaryDate: 2013-03-01
+  salesQuantity: 1445
+
+SalesSummary(tbld-dir-ss4):
+  book: tbld
+  salesChannel: dir
+  summaryDate: 2013-04-01
+  salesQuantity: 1764
+
+SalesSummary(tbld-dir-ss5):
+  book: tbld
+  salesChannel: dir
+  summaryDate: 2013-05-01
+  salesQuantity: 2443
+
+SalesSummary(tbld-dir-ss6):
+  book: tbld
+  salesChannel: dir
+  summaryDate: 2013-06-01
+  salesQuantity: 2408
+
+SalesSummary(tbld-web-ss1):
   book: tbld
   salesChannel: web
-  summaryDate: 2010-03-01
-  salesQuantity: 14
+  summaryDate: 2013-01-01
+  salesQuantity: 1017
 
-SalesSummary(jamb-ss1):
-  book: jamb
+SalesSummary(tbld-web-ss2):
+  book: tbld
   salesChannel: web
-  summaryDate: 2010-01-01
-  salesQuantity: 7
+  summaryDate: 2013-02-01
+  salesQuantity: 141
 
-SalesSummary(jamb-ss2):
-  book: jamb
+SalesSummary(tbld-web-ss3):
+  book: tbld
   salesChannel: web
-  summaryDate: 2010-04-01
-  salesQuantity: 15
+  summaryDate: 2013-03-01
+  salesQuantity: 2031
 
-SalesSummary(jamb-ss3):
-  book: jamb
+SalesSummary(tbld-web-ss4):
+  book: tbld
   salesChannel: web
-  summaryDate: 2010-03-01
-  salesQuantity: 10
+  summaryDate: 2013-04-01
+  salesQuantity: 2205
 
-SalesSummary(jamb-ss4):
-  book: jamb
+SalesSummary(tbld-web-ss5):
+  book: tbld
   salesChannel: web
-  summaryDate: 2010-03-01
-  salesQuantity: 2
+  summaryDate: 2013-05-01
+  salesQuantity: 1047
 
-SalesSummary(jamb-ss5):
-  book: jamb
+SalesSummary(tbld-web-ss6):
+  book: tbld
+  salesChannel: web
+  summaryDate: 2013-06-01
+  salesQuantity: 869
+
+SalesSummary(orpu-cat-ss1):
+  book: orpu
+  salesChannel: cat
+  summaryDate: 2013-01-01
+  salesQuantity: 678
+
+SalesSummary(orpu-cat-ss2):
+  book: orpu
+  salesChannel: cat
+  summaryDate: 2013-02-01
+  salesQuantity: 643
+
+SalesSummary(orpu-cat-ss3):
+  book: orpu
+  salesChannel: cat
+  summaryDate: 2013-03-01
+  salesQuantity: 928
+
+SalesSummary(orpu-cat-ss4):
+  book: orpu
+  salesChannel: cat
+  summaryDate: 2013-04-01
+  salesQuantity: 956
+
+SalesSummary(orpu-cat-ss5):
+  book: orpu
+  salesChannel: cat
+  summaryDate: 2013-05-01
+  salesQuantity: 887
+
+SalesSummary(orpu-cat-ss6):
+  book: orpu
+  salesChannel: cat
+  summaryDate: 2013-06-01
+  salesQuantity: 823
+
+SalesSummary(orpu-dir-ss1):
+  book: orpu
   salesChannel: dir
-  summaryDate: 2010-03-01
-  salesQuantity: 17
+  summaryDate: 2013-01-01
+  salesQuantity: 345
 
-SalesSummary(jamb-ss6):
+SalesSummary(orpu-dir-ss2):
+  book: orpu
+  salesChannel: dir
+  summaryDate: 2013-02-01
+  salesQuantity: 901
+
+SalesSummary(orpu-dir-ss3):
+  book: orpu
+  salesChannel: dir
+  summaryDate: 2013-03-01
+  salesQuantity: 1024
+
+SalesSummary(orpu-dir-ss4):
+  book: orpu
+  salesChannel: dir
+  summaryDate: 2013-04-01
+  salesQuantity: 989
+
+SalesSummary(orpu-dir-ss5):
+  book: orpu
+  salesChannel: dir
+  summaryDate: 2013-05-01
+  salesQuantity: 1111
+
+SalesSummary(orpu-dir-ss6):
+  book: orpu
+  salesChannel: dir
+  summaryDate: 2013-06-01
+  salesQuantity: 789
+
+SalesSummary(orpu-web-ss1):
+  book: orpu
+  salesChannel: web
+  summaryDate: 2013-01-01
+  salesQuantity: 897
+
+SalesSummary(orpu-web-ss2):
+  book: orpu
+  salesChannel: web
+  summaryDate: 2013-02-01
+  salesQuantity: 1203
+
+SalesSummary(orpu-web-ss3):
+  book: orpu
+  salesChannel: web
+  summaryDate: 2013-03-01
+  salesQuantity: 1003
+
+SalesSummary(orpu-web-ss4):
+  book: orpu
+  salesChannel: web
+  summaryDate: 2013-04-01
+  salesQuantity: 908
+
+SalesSummary(orpu-web-ss5):
+  book: orpu
+  salesChannel: web
+  summaryDate: 2013-05-01
+  salesQuantity: 704
+
+SalesSummary(orpu-web-ss6):
+  book: orpu
+  salesChannel: web
+  summaryDate: 2013-06-01
+  salesQuantity: 860
+
+SalesSummary(jfmm-cat-ss1):
+  book: jfmm
+  salesChannel: cat
+  summaryDate: 2013-01-01
+  salesQuantity: 1002
+
+SalesSummary(jfmm-cat-ss2):
+  book: jfmm
+  salesChannel: cat
+  summaryDate: 2013-02-01
+  salesQuantity: 1323
+
+SalesSummary(jfmm-cat-ss3):
+  book: jfmm
+  salesChannel: cat
+  summaryDate: 2013-03-01
+  salesQuantity: 1222
+
+SalesSummary(jfmm-cat-ss4):
+  book: jfmm
+  salesChannel: cat
+  summaryDate: 2013-04-01
+  salesQuantity: 1456
+
+SalesSummary(jfmm-cat-ss5):
+  book: jfmm
+  salesChannel: cat
+  summaryDate: 2013-05-01
+  salesQuantity: 809
+
+SalesSummary(jfmm-cat-ss6):
+  book: jfmm
+  salesChannel: cat
+  summaryDate: 2013-06-01
+  salesQuantity: 767
+
+SalesSummary(jfmm-dir-ss1):
+  book: jfmm
+  salesChannel: dir
+  summaryDate: 2013-01-01
+  salesQuantity: 567
+
+SalesSummary(jfmm-dir-ss2):
+  book: jfmm
+  salesChannel: dir
+  summaryDate: 2013-02-01
+  salesQuantity: 2048
+
+SalesSummary(jfmm-dir-ss3):
+  book: jfmm
+  salesChannel: dir
+  summaryDate: 2013-03-01
+  salesQuantity: 3025
+
+SalesSummary(jfmm-dir-ss4):
+  book: jfmm
+  salesChannel: dir
+  summaryDate: 2013-04-01
+  salesQuantity: 2014
+
+SalesSummary(jfmm-dir-ss5):
+  book: jfmm
+  salesChannel: dir
+  summaryDate: 2013-05-01
+  salesQuantity: 1800
+
+SalesSummary(jfmm-dir-ss6):
+  book: jfmm
+  salesChannel: dir
+  summaryDate: 2013-06-01
+  salesQuantity: 1745
+
+SalesSummary(jfmm-web-ss1):
+  book: jfmm
+  salesChannel: web
+  summaryDate: 2013-01-01
+  salesQuantity: 1453
+
+SalesSummary(jfmm-web-ss2):
+  book: jfmm
+  salesChannel: web
+  summaryDate: 2013-02-01
+  salesQuantity: 1401
+
+SalesSummary(jfmm-web-ss3):
+  book: jfmm
+  salesChannel: web
+  summaryDate: 2013-03-01
+  salesQuantity: 2030
+
+SalesSummary(jfmm-web-ss4):
+  book: jfmm
+  salesChannel: web
+  summaryDate: 2013-04-01
+  salesQuantity: 2127
+
+SalesSummary(jfmm-web-ss5):
+  book: jfmm
+  salesChannel: web
+  summaryDate: 2013-05-01
+  salesQuantity: 1004
+
+SalesSummary(jfmm-web-ss6):
+  book: jfmm
+  salesChannel: web
+  summaryDate: 2013-06-01
+  salesQuantity: 1160
+
+SalesSummary(jamb-cat-ss1):
   book: jamb
   salesChannel: cat
-  summaryDate: 2010-03-01
-  salesQuantity: 1
+  summaryDate: 2013-01-01
+  salesQuantity: 1240
 
-SalesSummary(jamb-ss7):
-  book: jamb
-  salesChannel: dir
-  summaryDate: 2010-06-01
-  salesQuantity: 20
-
-SalesSummary(jamb-ss8):
+SalesSummary(jamb-cat-ss2):
   book: jamb
   salesChannel: cat
-  summaryDate: 2010-07-01
-  salesQuantity: 3
+  summaryDate: 2013-02-01
+  salesQuantity: 1032
+
+SalesSummary(jamb-cat-ss3):
+  book: jamb
+  salesChannel: cat
+  summaryDate: 2013-03-01
+  salesQuantity: 985
+
+SalesSummary(jamb-cat-ss4):
+  book: jamb
+  salesChannel: cat
+  summaryDate: 2013-04-01
+  salesQuantity: 862
+
+SalesSummary(jamb-cat-ss5):
+  book: jamb
+  salesChannel: cat
+  summaryDate: 2013-05-01
+  salesQuantity: 874
+
+SalesSummary(jamb-cat-ss6):
+  book: jamb
+  salesChannel: cat
+  summaryDate: 2013-06-01
+  salesQuantity: 1201
+
+SalesSummary(jamb-dir-ss1):
+  book: jamb
+  salesChannel: dir
+  summaryDate: 2013-01-01
+  salesQuantity: 1560
+
+SalesSummary(jamb-dir-ss2):
+  book: jamb
+  salesChannel: dir
+  summaryDate: 2013-02-01
+  salesQuantity: 2021
+
+SalesSummary(jamb-dir-ss3):
+  book: jamb
+  salesChannel: dir
+  summaryDate: 2013-03-01
+  salesQuantity: 1440
+
+SalesSummary(jamb-dir-ss4):
+  book: jamb
+  salesChannel: dir
+  summaryDate: 2013-04-01
+  salesQuantity: 1261
+
+SalesSummary(jamb-dir-ss5):
+  book: jamb
+  salesChannel: dir
+  summaryDate: 2013-05-01
+  salesQuantity: 1136
+
+SalesSummary(jamb-dir-ss6):
+  book: jamb
+  salesChannel: dir
+  summaryDate: 2013-06-01
+  salesQuantity: 2400
+
+SalesSummary(jamb-web-ss1):
+  book: jamb
+  salesChannel: web
+  summaryDate: 2013-01-01
+  salesQuantity: 1010
+
+SalesSummary(jamb-web-ss2):
+  book: jamb
+  salesChannel: web
+  summaryDate: 2013-02-01
+  salesQuantity: 1785
+
+SalesSummary(jamb-web-ss3):
+  book: jamb
+  salesChannel: web
+  summaryDate: 2013-03-01
+  salesQuantity: 1563
+
+SalesSummary(jamb-web-ss4):
+  book: jamb
+  salesChannel: web
+  summaryDate: 2013-04-01
+  salesQuantity: 1245
+
+SalesSummary(jamb-web-ss5):
+  book: jamb
+  salesChannel: web
+  summaryDate: 2013-05-01
+  salesQuantity: 802
+
+SalesSummary(jamb-web-ss6):
+  book: jamb
+  salesChannel: web
+  summaryDate: 2013-06-01
+  salesQuantity: 603
+
+SalesSummary(bosc-cat-ss1):
+  book: bosc
+  salesChannel: cat
+  summaryDate: 2013-01-01
+  salesQuantity: 121
+
+SalesSummary(bosc-cat-ss2):
+  book: bosc
+  salesChannel: cat
+  summaryDate: 2013-02-01
+  salesQuantity: 152
+
+SalesSummary(bosc-cat-ss3):
+  book: bosc
+  salesChannel: cat
+  summaryDate: 2013-03-01
+  salesQuantity: 236
+
+SalesSummary(bosc-cat-ss4):
+  book: bosc
+  salesChannel: cat
+  summaryDate: 2013-04-01
+  salesQuantity: 856
+
+SalesSummary(bosc-cat-ss5):
+  book: bosc
+  salesChannel: cat
+  summaryDate: 2013-05-01
+  salesQuantity: 756
+
+SalesSummary(bosc-cat-ss6):
+  book: bosc
+  salesChannel: cat
+  summaryDate: 2013-06-01
+  salesQuantity: 92
+
+SalesSummary(bosc-dir-ss1):
+  book: bosc
+  salesChannel: dir
+  summaryDate: 2013-01-01
+  salesQuantity: 560
+
+SalesSummary(bosc-dir-ss2):
+  book: bosc
+  salesChannel: dir
+  summaryDate: 2013-02-01
+  salesQuantity: 203
+
+SalesSummary(bosc-dir-ss3):
+  book: bosc
+  salesChannel: dir
+  summaryDate: 2013-03-01
+  salesQuantity: 704
+
+SalesSummary(bosc-dir-ss4):
+  book: bosc
+  salesChannel: dir
+  summaryDate: 2013-04-01
+  salesQuantity: 788
+
+SalesSummary(bosc-dir-ss5):
+  book: bosc
+  salesChannel: dir
+  summaryDate: 2013-05-01
+  salesQuantity: 524
+
+SalesSummary(bosc-dir-ss6):
+  book: bosc
+  salesChannel: dir
+  summaryDate: 2013-06-01
+  salesQuantity: 739
+
+SalesSummary(bosc-web-ss1):
+  book: bosc
+  salesChannel: web
+  summaryDate: 2013-01-01
+  salesQuantity: 123
+
+SalesSummary(bosc-web-ss2):
+  book: bosc
+  salesChannel: web
+  summaryDate: 2013-02-01
+  salesQuantity: 149
+
+SalesSummary(bosc-web-ss3):
+  book: bosc
+  salesChannel: web
+  summaryDate: 2013-03-01
+  salesQuantity: 306
+
+SalesSummary(bosc-web-ss4):
+  book: bosc
+  salesChannel: web
+  summaryDate: 2013-04-01
+  salesQuantity: 405
+
+SalesSummary(bosc-web-ss5):
+  book: bosc
+  salesChannel: web
+  summaryDate: 2013-05-01
+  salesQuantity: 205
+
+SalesSummary(bosc-web-ss6):
+  book: bosc
+  salesChannel: web
+  summaryDate: 2013-06-01
+  salesQuantity: 392

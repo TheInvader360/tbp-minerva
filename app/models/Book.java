@@ -7,7 +7,6 @@ import play.db.jpa.*;
 import play.modules.search.*;
 import utils.CurrencyUtils;
 
-import java.math.BigInteger;
 import java.util.*;
 
 @Entity
@@ -114,11 +113,11 @@ public class Book extends Model {
 		return CurrencyUtils.currencyFormat(getCostsEstimate(), "GBP");
 	}
 	
-	public double getProfitLoss() {
+	public double getProfit() {
 		return getTotalSalesRevenue() - (getTotalPurchaseCost() + getCostsEstimate());
 	}
-	public String getCurrencyFormatProfitLoss() {
-		return CurrencyUtils.currencyFormat(getProfitLoss(), "GBP");
+	public String getCurrencyFormatProfit() {
+		return CurrencyUtils.currencyFormat(getProfit(), "GBP");
 	}
 	
 	public int getTotalUnitSales(String channelTag) {
@@ -150,10 +149,10 @@ public class Book extends Model {
 		return CurrencyUtils.currencyFormat(getCostsEstimate(channelTag), "GBP");
 	}
 	
-	public double getProfitLoss(String channelTag) {
+	public double getProfit(String channelTag) {
 		return getTotalSalesRevenue(channelTag) - (getTotalPurchaseCost(channelTag) + getCostsEstimate(channelTag));
 	}
-	public String getCurrencyFormatProfitLoss(String channelTag) {
-		return CurrencyUtils.currencyFormat(getProfitLoss(channelTag), "GBP");
+	public String getCurrencyFormatProfit(String channelTag) {
+		return CurrencyUtils.currencyFormat(getProfit(channelTag), "GBP");
 	}
 }

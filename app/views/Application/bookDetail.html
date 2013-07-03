@@ -17,17 +17,32 @@
       </div>
 
       <div class="tab-pane fade in active" id="tab1">
-        <div class = "well">
-          <p>
-            Combined
-          </p>
-          <p>
-            Total Unit Sales: ${book.getTotalUnitSales()} <br>
-            Total Purchase Cost: ${book.getCurrencyFormatTotalPurchaseCost()} <br>
-            Total Sales Revenue: ${book.getCurrencyFormatTotalSalesRevenue()} <br>
-            Distribution and support cost estimate: ${book.getCurrencyFormatCostsEstimate()} <br>
-            Profit / Loss: ${book.getCurrencyFormatProfitLoss()}
-          </p>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <td>Total Unit Sales:</td>
+              <td>${book.getTotalUnitSales()}</td>
+            </tr>
+            <tr>
+              <td>Total Purchase Cost:</td>
+              <td>${book.getCurrencyFormatTotalPurchaseCost()}</td>
+            </tr>
+            <tr>
+              <td>Total Sales Revenue:</td>
+              <td>${book.getCurrencyFormatTotalSalesRevenue()}</td>
+            </tr>
+            <tr>
+              <td>Distribution and support cost estimate:</td>
+              <td>${book.getCurrencyFormatCostsEstimate()}</td>
+            </tr>
+            <tr class="success">
+              <td>Profit:</td>
+              <td>${book.getCurrencyFormatProfit()}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!--useful for debug>
           <p>
             Sales Summary Rows: ${book.salesSummaries.size()}
           </p>
@@ -36,73 +51,86 @@
               ${salesSummary.salesChannel.tag} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
             #{/list}
           </p>
-        </div>
+        <end debug section-->
       </div>
+      
       <div class="tab-pane fade in" id="tab2">
-        <div class = "well">
-          <p>
-            Catalogue
-          </p>
-          <p>
-            Total Unit Sales: ${book.getTotalUnitSales('cat')} <br>
-            Total Purchase Cost: ${book.getCurrencyFormatTotalPurchaseCost('cat')} <br>
-            Total Sales Revenue: ${book.getCurrencyFormatTotalSalesRevenue('cat')} <br>
-            Distribution and support cost estimate: ${book.getCurrencyFormatCostsEstimate('cat')} <br>
-            Profit / Loss: ${book.getCurrencyFormatProfitLoss('cat')}
-          </p>
-          <p>
-            Sales Summary Rows: ${book.salesSummaries.size()}
-          </p>
-          <p>
-            #{list items:book.salesSummaries, as:'salesSummary'}
-              ${salesSummary.salesChannel.tag} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
-            #{/list}
-          </p>
-        </div>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <td>Total Unit Sales:</td>
+              <td>${book.getTotalUnitSales('cat')}</td>
+            </tr>
+            <tr>
+              <td>Total Purchase Cost:</td>
+              <td>${book.getCurrencyFormatTotalPurchaseCost('cat')}</td>
+            </tr>
+            <tr>
+              <td>Total Sales Revenue:</td>
+              <td>${book.getCurrencyFormatTotalSalesRevenue('cat')}</td>
+            </tr>
+            <tr>
+              <td>Distribution and support cost estimate:</td>
+              <td>${book.getCurrencyFormatCostsEstimate('cat')}</td>
+            </tr>
+            <tr class="success">
+              <td>Profit:</td>
+              <td>${book.getCurrencyFormatProfit('cat')}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="tab-pane fade in" id="tab3">
-        <div class = "well">
-          <p>
-            Direct
-          </p>
-          <p>
-            Total Unit Sales: ${book.getTotalUnitSales('dir')} <br>
-            Total Purchase Cost: ${book.getCurrencyFormatTotalPurchaseCost('dir')} <br>
-            Total Sales Revenue: ${book.getCurrencyFormatTotalSalesRevenue('dir')} <br>
-            Distribution and support cost estimate: ${book.getCurrencyFormatCostsEstimate('dir')} <br>
-            Profit / Loss: ${book.getCurrencyFormatProfitLoss('dir')}
-          </p>
-          <p>
-            Sales Summary Rows: ${book.salesSummaries.size()}
-          </p>
-          <p>
-            #{list items:book.salesSummaries, as:'salesSummary'}
-              ${salesSummary.salesChannel.tag} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
-            #{/list}
-          </p>
-        </div>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <td>Total Unit Sales:</td>
+              <td>${book.getTotalUnitSales('dir')}</td>
+            </tr>
+            <tr>
+              <td>Total Purchase Cost:</td>
+              <td>${book.getCurrencyFormatTotalPurchaseCost('dir')}</td>
+            </tr>
+            <tr>
+              <td>Total Sales Revenue:</td>
+              <td>${book.getCurrencyFormatTotalSalesRevenue('dir')}</td>
+            </tr>
+            <tr>
+              <td>Distribution and support cost estimate:</td>
+              <td>${book.getCurrencyFormatCostsEstimate('dir')}</td>
+            </tr>
+            <tr class="success">
+              <td>Profit:</td>
+              <td>${book.getCurrencyFormatProfit('dir')}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="tab-pane fade in" id="tab4">
-        <div class = "well">
-          <p>
-            Internet
-          </p>
-          <p>
-            Total Unit Sales: ${book.getTotalUnitSales('web')} <br>
-            Total Purchase Cost: ${book.getCurrencyFormatTotalPurchaseCost('web')} <br>
-            Total Sales Revenue: ${book.getCurrencyFormatTotalSalesRevenue('web')} <br>
-            Distribution and support cost estimate: ${book.getCurrencyFormatCostsEstimate('web')} <br>
-            Profit / Loss: ${book.getCurrencyFormatProfitLoss('web')}
-          </p>
-          <p>
-            Sales Summary Rows: ${book.salesSummaries.size()}
-          </p>
-          <p>
-            #{list items:book.salesSummaries, as:'salesSummary'}
-              ${salesSummary.salesChannel.tag} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
-            #{/list}
-          </p>
-        </div>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <td>Total Unit Sales:</td>
+              <td>${book.getTotalUnitSales('web')}</td>
+            </tr>
+            <tr>
+              <td>Total Purchase Cost:</td>
+              <td>${book.getCurrencyFormatTotalPurchaseCost('web')}</td>
+            </tr>
+            <tr>
+              <td>Total Sales Revenue:</td>
+              <td>${book.getCurrencyFormatTotalSalesRevenue('web')}</td>
+            </tr>
+            <tr>
+              <td>Distribution and support cost estimate:</td>
+              <td>${book.getCurrencyFormatCostsEstimate('web')}</td>
+            </tr>
+            <tr class="success">
+              <td>Profit:</td>
+              <td>${book.getCurrencyFormatProfit('web')}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
