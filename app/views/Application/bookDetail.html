@@ -128,13 +128,7 @@
 
 <script class="code" type="text/javascript">
   $(document).ready(function () {
-    
-    #{if selectedSalesChannel != null}
-      var data = [${book.getChartData(selectedSalesChannel.tag)}];
-    #{/if}
-    #{else}
-      var data = [${book.getChartData('all')}];
-    #{/else}
+    var data = [${DataUtils.getChartDataPoints(book, selectedSalesChannel)}];
     plot = $.jqplot("chart", [data], {
       // Turns on animation for all series in this plot.
       animate: true,

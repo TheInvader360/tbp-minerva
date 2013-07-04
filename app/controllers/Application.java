@@ -3,6 +3,8 @@ package controllers;
 import play.*;
 import play.modules.search.*;
 import play.mvc.*;
+import utils.DataUtils;
+
 import java.util.*;
 import models.*;
 
@@ -42,6 +44,9 @@ public class Application extends Controller {
 		SalesChannel selectedSalesChannel = SalesChannel.find("tag = ?", tag).first();
 
 		List<SalesChannel> allSalesChannels = SalesChannel.find("order by tag asc").fetch();
+		
+		// make data utils available to template
+		renderArgs.put("DataUtils", new DataUtils());		
 		renderTemplate("Application/bookDetail.html", book, selectedSalesChannel, allSalesChannels);
 	}
 }

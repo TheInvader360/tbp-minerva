@@ -55,42 +55,15 @@ public class Book extends Model {
 		return CurrencyUtils.currencyFormat(salePrice, "GBP");
 	}
 	
-	public String getChartData(String chartType) {
-		String points = "";
-		List<SalesSummary> list = new ArrayList<SalesSummary>();
-		
-		if (chartType == "all") {
-			// get all SalesSummary rows for this book
-			list = SalesSummary.find("book = ?", this).fetch();
-		}
-		else {
-			// get all SalesSummary rows of a particular type for this book
-			list = SalesSummary.find("salesChannel.tag = ? and book = ?", chartType, this).fetch();
-		}
-
-		// populate a treemap (default sort by key asc) with list values (key:summaryDate / value:salesQuantity)
-		Map map = new TreeMap<Date, Integer>();
-		for (int i = 0; i < list.size(); i++) {
-			if (map.containsKey(list.get(i).summaryDate)) {
-				// if summaryDate already exists, sum the values
-				map.put(list.get(i).summaryDate, (Integer) map.get(list.get(i).summaryDate) + list.get(i).salesQuantity);
-			}
-			else {
-				// otherwise simply insert the key value pair
-				map.put(list.get(i).summaryDate, list.get(i).salesQuantity);
-			}
-		}
-
-		// form a string that the chart script can make use of
-		Set set = map.entrySet(); 
-		Iterator i = set.iterator(); 
-		while (i.hasNext()) {
-			Map.Entry me = (Map.Entry)i.next();
-			points = points+"[\'"+me.getKey()+"\',"+me.getValue()+"],";
-		}
-
-		return points;
+	public String toString() {
+	    return sku+" - "+title;
 	}
+	
+	
+	
+	
+	
+	// TODO: Move these methods out of model and into DataUtils...
 	
 	public int getTotalUnitSales() {
 		Query q = JPA.em().createQuery("SELECT SUM(ss.salesQuantity) FROM SalesSummary ss INNER JOIN ss.salesChannel sc WHERE book_id = "+this.id);
@@ -169,9 +142,5 @@ public class Book extends Model {
 	}
 	public String getCurrencyFormatProfit(String channelTag) {
 		return CurrencyUtils.currencyFormat(getProfit(channelTag), "GBP");
-	}
-	
-	public String toString() {
-	    return sku+" - "+title;
 	}
 }
