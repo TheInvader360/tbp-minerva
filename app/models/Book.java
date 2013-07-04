@@ -17,6 +17,7 @@ public class Book extends Model {
 	@Required
 	public String title;
 	@Field
+	@Required
 	public String author;
 	@Field
 	@Required
@@ -24,7 +25,9 @@ public class Book extends Model {
 	@Field
 	@Required
 	public String sku;
+	@Required
 	public double purchasePrice;
+	@Required
 	public double salePrice;
 	@OneToMany(mappedBy="book", cascade=CascadeType.ALL)
 	public List<SalesSummary> salesSummaries;

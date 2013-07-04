@@ -1,197 +1,49 @@
 #{extends 'main.html' /}
-#{set title:'Minerva - ' + book.title /}
+#{set title:'Minerva - ' + book.sku /}
 
-<div class="container">
+${book.sku}
 
-  <div class="tabbable tabs-left span9">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#tab1" data-toggle="tab" id='all'>Combined</a></li>
-      <li><a href="#tab2" data-toggle="tab" id='cat'>Catalogue</a></li>
-      <li><a href="#tab3" data-toggle="tab" id='dir'>Direct</a></li>
-      <li><a href="#tab4" data-toggle="tab" id='web'>Internet</a></li>
-    </ul>
-    <div class="tab-content">
-    
-      <div class = "well">
-        <div id="chart" style="height:200px;"></div>
-      </div>
+<br>
 
-      <div class="tab-pane fade in active" id="tab1">
-        <table class="table table-striped table-bordered">
-          <tbody>
-            <tr>
-              <td>Total Unit Sales:</td>
-              <td>${book.getTotalUnitSales()}</td>
-            </tr>
-            <tr>
-              <td>Total Purchase Cost:</td>
-              <td>${book.getCurrencyFormatTotalPurchaseCost()}</td>
-            </tr>
-            <tr>
-              <td>Total Sales Revenue:</td>
-              <td>${book.getCurrencyFormatTotalSalesRevenue()}</td>
-            </tr>
-            <tr>
-              <td>Distribution and support cost estimate:</td>
-              <td>${book.getCurrencyFormatCostsEstimate()}</td>
-            </tr>
-            <tr class="success">
-              <td>Profit:</td>
-              <td>${book.getCurrencyFormatProfit()}</td>
-            </tr>
-          </tbody>
-        </table>
+#{if selectedSalesChannel != null}
+  ${selectedSalesChannel.name}
+#{/if}
+#{else}
+  Combined
+#{/else}
 
-        <!--useful for debug>
-          <p>
-            Sales Summary Rows: ${book.salesSummaries.size()}
-          </p>
-          <p>
-            #{list items:book.salesSummaries, as:'salesSummary'}
-              ${salesSummary.salesChannel.tag} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
-            #{/list}
-          </p>
-        <end debug section-->
-      </div>
-      
-      <div class="tab-pane fade in" id="tab2">
-        <table class="table table-striped table-bordered">
-          <tbody>
-            <tr>
-              <td>Total Unit Sales:</td>
-              <td>${book.getTotalUnitSales('cat')}</td>
-            </tr>
-            <tr>
-              <td>Total Purchase Cost:</td>
-              <td>${book.getCurrencyFormatTotalPurchaseCost('cat')}</td>
-            </tr>
-            <tr>
-              <td>Total Sales Revenue:</td>
-              <td>${book.getCurrencyFormatTotalSalesRevenue('cat')}</td>
-            </tr>
-            <tr>
-              <td>Distribution and support cost estimate:</td>
-              <td>${book.getCurrencyFormatCostsEstimate('cat')}</td>
-            </tr>
-            <tr class="success">
-              <td>Profit:</td>
-              <td>${book.getCurrencyFormatProfit('cat')}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="tab-pane fade in" id="tab3">
-        <table class="table table-striped table-bordered">
-          <tbody>
-            <tr>
-              <td>Total Unit Sales:</td>
-              <td>${book.getTotalUnitSales('dir')}</td>
-            </tr>
-            <tr>
-              <td>Total Purchase Cost:</td>
-              <td>${book.getCurrencyFormatTotalPurchaseCost('dir')}</td>
-            </tr>
-            <tr>
-              <td>Total Sales Revenue:</td>
-              <td>${book.getCurrencyFormatTotalSalesRevenue('dir')}</td>
-            </tr>
-            <tr>
-              <td>Distribution and support cost estimate:</td>
-              <td>${book.getCurrencyFormatCostsEstimate('dir')}</td>
-            </tr>
-            <tr class="success">
-              <td>Profit:</td>
-              <td>${book.getCurrencyFormatProfit('dir')}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="tab-pane fade in" id="tab4">
-        <table class="table table-striped table-bordered">
-          <tbody>
-            <tr>
-              <td>Total Unit Sales:</td>
-              <td>${book.getTotalUnitSales('web')}</td>
-            </tr>
-            <tr>
-              <td>Total Purchase Cost:</td>
-              <td>${book.getCurrencyFormatTotalPurchaseCost('web')}</td>
-            </tr>
-            <tr>
-              <td>Total Sales Revenue:</td>
-              <td>${book.getCurrencyFormatTotalSalesRevenue('web')}</td>
-            </tr>
-            <tr>
-              <td>Distribution and support cost estimate:</td>
-              <td>${book.getCurrencyFormatCostsEstimate('web')}</td>
-            </tr>
-            <tr class="success">
-              <td>Profit:</td>
-              <td>${book.getCurrencyFormatProfit('web')}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+<br>
 
-  <div class="well span2 text-right">
-    <div class="row">
-      <div class="span2">
-        <p>
-          <img src=${book.getPhotoUrl()} class="img-polaroid" alt="${book.title}" title="${book.title}">
-        </p>
-        <p>
-          Purchased at ${book.getCurrencyFormatPuchasePrice()}
-        </p>
-        <p>
-          Sold at ${book.getCurrencyFormatSalePrice()}
-        </p>
-        <hr>
-        <p>
-          ${book.sku}
-        </p>
-        <p>
-          ${book.title}
-        </p>
-        <p>
-          <a href="@{Application.listByAuthor(book.author)}">${book.author}</a>
-        </p>
-        <p>
-          ${book.isbn}
-        </p>
-      </div>
-    </div>
-  </div>
+<a href="@{Application.showBookDetail(book.isbn)}">
+  Combined
+</a>
+<br>
+#{list items:allSalesChannels, as:'salesChannel'}
+  <a href="@{Application.showBookDetail(book.isbn, salesChannel.tag)}">
+    ${salesChannel.name}<br>
+  </a>
+#{/list}
 
-</div>
+<div id="chart" style="height:200px;"></div>
+
+<p>
+  Sales Summary Rows: ${book.salesSummaries.size()}
+</p>
+<p>
+  #{list items:book.salesSummaries, as:'salesSummary'}
+    ${salesSummary.salesChannel.tag} ${salesSummary.summaryDate} ${salesSummary.salesQuantity}<br>
+  #{/list}
+</p>
 	
 <script class="code" type="text/javascript">
-  $(document).ready(function() {
-    plotChart('all');
-  });
-
-  function plotChart(chartType) {
-    var data;
+  $(document).ready(function () {
     
-    switch (chartType) {
-      case 'all':
-        data = [${book.getChartData('all')}];
-        break;
-      case 'cat':
-        data = [${book.getChartData('cat')}];
-        break;
-      case 'dir':
-        data = [${book.getChartData('dir')}];
-        break;
-      case 'web':
-        data = [${book.getChartData('web')}];
-        break;
-      default:
-        data = [['1900-01-01 00:00:00.0',0]];
-        break;
-    }
-
+    #{if selectedSalesChannel != null}
+      var data = [${book.getChartData(selectedSalesChannel.tag)}];
+    #{/if}
+    #{else}
+      var data = [${book.getChartData('all')}];
+    #{/else}
     plot = $.jqplot("chart", [data], {
       // Turns on animation for all series in this plot.
       animate: true,
@@ -210,7 +62,7 @@
             // This is a number of milliseconds.
             // Default for a line series is 2500.
             animation: {
-              speed: 1000
+              speed: 2000
             }
           }
         }
@@ -229,7 +81,7 @@
         yaxis: {
           rendererOptions: {
             forceTickAt0: true
-          },
+          }
         },
       },
       highlighter: {
@@ -239,17 +91,10 @@
         sizeAdjust: 7.5 , tooltipLocation : 'n'
       }
     });
-  };
-  
+  });
   $(window).bind('resize', function(event, ui) {
     plot.replot({resetAxes:false});
   });
-  
-$('a[data-toggle="tab"]').on('shown', function (e) {
-  plotChart(e.target.id);
-  plot.replot();
-})
-  
 </script>
 <script class="include" type="text/javascript" src="@{'/public/javascripts/jqplot/jquery.jqplot.min.js'}"></script>
 <script class="include" type="text/javascript" src="@{'/public/javascripts/jqplot/plugins/jqplot.dateAxisRenderer.min.js'}"></script>

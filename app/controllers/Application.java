@@ -33,10 +33,15 @@ public class Application extends Controller {
 		List<Book> books = Book.find("author = ? order by sku asc", author).fetch();
 		renderTemplate("Application/bookList.html", books);
 	}
-	
-	public static void showBookDetail(String isbn) {
-		// isbn is unique (one per product) - fetching the 'first of one' is safe
+
+	public static void showBookDetail(String isbn, String tag) {
+		// there will only be one match (unique isbn per book) so fetching first of one is fine
 		Book book = Book.find("isbn = ?", isbn).first();
-		renderTemplate("Application/bookDetail.html", book);		
+		
+		// if sales channel is null, the template handles it, so don't worry - be happy :)
+		SalesChannel selectedSalesChannel = SalesChannel.find("tag = ?", tag).first();
+
+		List<SalesChannel> allSalesChannels = SalesChannel.find("order by tag asc").fetch();
+		renderTemplate("Application/bookDetail.html", book, selectedSalesChannel, allSalesChannels);
 	}
 }
