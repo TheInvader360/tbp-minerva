@@ -32,4 +32,4 @@ eclipse
 browser
 
 * localhost:9000
-* localhost:9000/admin/
+* localhost:9000/admin/ (admin/password)

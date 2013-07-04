@@ -14,6 +14,9 @@ public class BasicTest extends UnitTest {
 		// Load in the yaml canned data
 		Fixtures.loadModels("data.yml");
 		
+		// Verify admin user account exists
+		assertNotNull(User.connect("admin", "password"));
+		
 		// Count all books, there should be five...
 		assertEquals(5, Book.count());
 		

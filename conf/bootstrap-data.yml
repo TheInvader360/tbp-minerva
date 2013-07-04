@@ -1,6 +1,10 @@
 # you describe your data using the YAML notation here
 # and then load them using Fixtures.load("bootstrap-data.yml")
 
+User(admin):
+  username: admin
+  password: password
+
 SalesChannel(cat):
   name: Catalogue
   tag: cat
