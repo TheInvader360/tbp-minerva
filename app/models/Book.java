@@ -114,7 +114,15 @@ public class Book extends Model {
 	}
 	
 	public double getCostsEstimate() {
-		return getCostsEstimate("cat") + getCostsEstimate("dir") + getCostsEstimate("web");
+		// Iterate through all sales channels and return the sum of all cost estimates
+		double total = 0;
+		List<SalesChannel> allSalesChannels = SalesChannel.find("order by tag asc").fetch();
+		Iterator<SalesChannel> i = allSalesChannels.iterator();
+		while (i.hasNext()) {
+			SalesChannel sc = i.next();
+			total += getCostsEstimate(sc.tag);
+		}
+		return total;
 	}
 	public String getCurrencyFormatCostsEstimate() {
 		return CurrencyUtils.currencyFormat(getCostsEstimate(), "GBP");
@@ -150,7 +158,7 @@ public class Book extends Model {
 
 	public double getCostsEstimate(String channelTag) {
 		SalesChannel salesChannel = SalesChannel.find("byTag", channelTag).first();
-		return getTotalSalesRevenue(channelTag) * (salesChannel.costPercentage / 100);
+		return getTotalSalesRevenue(channelTag) * (salesChannel.costPercentage / 100d);
 	}
 	public String getCurrencyFormatCostsEstimate(String channelTag) {
 		return CurrencyUtils.currencyFormat(getCostsEstimate(channelTag), "GBP");

@@ -9,6 +9,7 @@ purchasePrice=Purchase Price
 salePrice=Sale Price
 name=Name
 tag=Tag
+costPercentage=Costs Percentage
 book=Book
 salesChannel=Sales Channel
 summaryDate=Summary Date

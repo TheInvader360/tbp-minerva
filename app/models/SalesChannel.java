@@ -9,11 +9,12 @@ import play.db.jpa.*;
  
 @Entity
 public class SalesChannel extends Model {
+	@Required
 	public String name;
 	@Required
 	public String tag;
 	@Required
-    public float costPercentage;
+    public double costPercentage;
 	@OneToMany(mappedBy="salesChannel", cascade=CascadeType.ALL)
 	public List<SalesSummary> salesSummaries;
     
