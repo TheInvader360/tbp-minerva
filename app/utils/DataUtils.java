@@ -89,6 +89,7 @@ public class DataUtils {
 		}
 		return total;
 	}
+
 	public String getCurrencyFormatCostsEstimate(Book book) {
 		return CurrencyUtils.currencyFormat(getCostsEstimate(book), "GBP");
 	}
@@ -96,6 +97,7 @@ public class DataUtils {
 	public double getProfit(Book book) {
 		return getTotalSalesRevenue(book) - (getTotalPurchaseCost(book) + getCostsEstimate(book));
 	}
+	
 	public String getCurrencyFormatProfit(Book book) {
 		return CurrencyUtils.currencyFormat(getProfit(book), "GBP");
 	}
@@ -110,6 +112,7 @@ public class DataUtils {
 	public double getTotalPurchaseCost(Book book, SalesChannel salesChannel) {
 		return getTotalUnitSales(book, salesChannel) * book.purchasePrice;
 	}
+	
 	public String getCurrencyFormatTotalPurchaseCost(Book book, SalesChannel salesChannel) {
 		return CurrencyUtils.currencyFormat(getTotalPurchaseCost(book, salesChannel), "GBP");
 	}
@@ -117,13 +120,15 @@ public class DataUtils {
 	public double getTotalSalesRevenue(Book book, SalesChannel salesChannel) {
 		return getTotalUnitSales(book, salesChannel) * book.salePrice;
 	}
+	
 	public String getCurrencyFormatTotalSalesRevenue(Book book, SalesChannel salesChannel) {
 		return CurrencyUtils.currencyFormat(getTotalSalesRevenue(book, salesChannel), "GBP");
 	}
-
+	
 	public double getCostsEstimate(Book book, SalesChannel salesChannel) {
 		return getTotalSalesRevenue(book, salesChannel) * (salesChannel.costPercentage / 100d);
 	}
+	
 	public String getCurrencyFormatCostsEstimate(Book book, SalesChannel salesChannel) {
 		return CurrencyUtils.currencyFormat(getCostsEstimate(book, salesChannel), "GBP");
 	}
@@ -131,6 +136,7 @@ public class DataUtils {
 	public double getProfit(Book book, SalesChannel salesChannel) {
 		return getTotalSalesRevenue(book, salesChannel) - (getTotalPurchaseCost(book, salesChannel) + getCostsEstimate(book, salesChannel));
 	}
+	
 	public String getCurrencyFormatProfit(Book book, SalesChannel salesChannel) {
 		return CurrencyUtils.currencyFormat(getProfit(book, salesChannel), "GBP");
 	}

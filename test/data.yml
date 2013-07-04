@@ -1,5 +1,20 @@
 # you describe your data using the YAML notation here
-# and then load them using Fixtures.load("data.yml")
+# and then load them using Fixtures.load("bootstrap-data.yml")
+
+SalesChannel(cat):
+  name: Catalogue
+  tag: cat
+  costPercentage: 15
+
+SalesChannel(dir):
+  name: Direct
+  tag: dir
+  costPercentage: 20
+
+SalesChannel(web):
+  name: Internet
+  tag: web
+  costPercentage: 10
 
 Book(tbld):
   title: True Blood Collection
@@ -33,27 +48,460 @@ Book(jamb):
   purchasePrice: 2.55
   salePrice: 6.99
 
-SalesSummary(sh1):
-  book: tbld
-  summaryDate: 2010-01-01
-  salesQuantity: 10
+Book(bosc):
+  title: Michael Connelly - The Bosch Collection
+  author: Michael Connelly
+  isbn: 9781407235585
+  sku: BOSC
+  purchasePrice: 4.63
+  salePrice: 9.99
 
-SalesSummary(sh2):
+SalesSummary(tbld-cat-ss1):
   book: tbld
-  summaryDate: 2010-02-01
-  salesQuantity: 12
+  salesChannel: cat
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 1323
 
-SalesSummary(sh3):
+SalesSummary(tbld-cat-ss2):
   book: tbld
-  summaryDate: 2010-03-01
-  salesQuantity: 15
+  salesChannel: cat
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 1222
 
-SalesSummary(sh4):
+SalesSummary(tbld-cat-ss3):
   book: tbld
-  summaryDate: 2010-04-01
-  salesQuantity: 14
+  salesChannel: cat
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 1141
 
-SalesSummary(sh5):
+SalesSummary(tbld-cat-ss4):
   book: tbld
-  summaryDate: 2010-05-01
-  salesQuantity: 11
+  salesChannel: cat
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 864
+
+SalesSummary(tbld-cat-ss5):
+  book: tbld
+  salesChannel: cat
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 926
+
+SalesSummary(tbld-dir-ss1):
+  book: tbld
+  salesChannel: dir
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 2036
+
+SalesSummary(tbld-dir-ss2):
+  book: tbld
+  salesChannel: dir
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 1445
+
+SalesSummary(tbld-dir-ss3):
+  book: tbld
+  salesChannel: dir
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 1764
+
+SalesSummary(tbld-dir-ss4):
+  book: tbld
+  salesChannel: dir
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 2443
+
+SalesSummary(tbld-dir-ss5):
+  book: tbld
+  salesChannel: dir
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 2408
+
+SalesSummary(tbld-web-ss1):
+  book: tbld
+  salesChannel: web
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 141
+
+SalesSummary(tbld-web-ss2):
+  book: tbld
+  salesChannel: web
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 2031
+
+SalesSummary(tbld-web-ss3):
+  book: tbld
+  salesChannel: web
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 2205
+
+SalesSummary(tbld-web-ss4):
+  book: tbld
+  salesChannel: web
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 1047
+
+SalesSummary(tbld-web-ss5):
+  book: tbld
+  salesChannel: web
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 869
+
+SalesSummary(orpu-cat-ss1):
+  book: orpu
+  salesChannel: cat
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 643
+
+SalesSummary(orpu-cat-ss2):
+  book: orpu
+  salesChannel: cat
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 928
+
+SalesSummary(orpu-cat-ss3):
+  book: orpu
+  salesChannel: cat
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 956
+
+SalesSummary(orpu-cat-ss4):
+  book: orpu
+  salesChannel: cat
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 887
+
+SalesSummary(orpu-cat-ss5):
+  book: orpu
+  salesChannel: cat
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 823
+
+SalesSummary(orpu-dir-ss1):
+  book: orpu
+  salesChannel: dir
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 901
+
+SalesSummary(orpu-dir-ss2):
+  book: orpu
+  salesChannel: dir
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 1024
+
+SalesSummary(orpu-dir-ss3):
+  book: orpu
+  salesChannel: dir
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 989
+
+SalesSummary(orpu-dir-ss4):
+  book: orpu
+  salesChannel: dir
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 1111
+
+SalesSummary(orpu-dir-ss5):
+  book: orpu
+  salesChannel: dir
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 789
+
+SalesSummary(orpu-web-ss1):
+  book: orpu
+  salesChannel: web
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 1203
+
+SalesSummary(orpu-web-ss2):
+  book: orpu
+  salesChannel: web
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 1003
+
+SalesSummary(orpu-web-ss3):
+  book: orpu
+  salesChannel: web
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 908
+
+SalesSummary(orpu-web-ss4):
+  book: orpu
+  salesChannel: web
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 704
+
+SalesSummary(orpu-web-ss5):
+  book: orpu
+  salesChannel: web
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 860
+
+SalesSummary(jfmm-cat-ss1):
+  book: jfmm
+  salesChannel: cat
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 1323
+
+SalesSummary(jfmm-cat-ss2):
+  book: jfmm
+  salesChannel: cat
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 1222
+
+SalesSummary(jfmm-cat-ss3):
+  book: jfmm
+  salesChannel: cat
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 1456
+
+SalesSummary(jfmm-cat-ss4):
+  book: jfmm
+  salesChannel: cat
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 809
+
+SalesSummary(jfmm-cat-ss5):
+  book: jfmm
+  salesChannel: cat
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 767
+
+SalesSummary(jfmm-dir-ss1):
+  book: jfmm
+  salesChannel: dir
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 2048
+
+SalesSummary(jfmm-dir-ss2):
+  book: jfmm
+  salesChannel: dir
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 3025
+
+SalesSummary(jfmm-dir-ss3):
+  book: jfmm
+  salesChannel: dir
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 2014
+
+SalesSummary(jfmm-dir-ss4):
+  book: jfmm
+  salesChannel: dir
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 1800
+
+SalesSummary(jfmm-dir-ss5):
+  book: jfmm
+  salesChannel: dir
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 1745
+
+SalesSummary(jfmm-web-ss1):
+  book: jfmm
+  salesChannel: web
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 1401
+
+SalesSummary(jfmm-web-ss2):
+  book: jfmm
+  salesChannel: web
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 2030
+
+SalesSummary(jfmm-web-ss3):
+  book: jfmm
+  salesChannel: web
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 2127
+
+SalesSummary(jfmm-web-ss4):
+  book: jfmm
+  salesChannel: web
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 1004
+
+SalesSummary(jfmm-web-ss5):
+  book: jfmm
+  salesChannel: web
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 1160
+
+SalesSummary(jamb-cat-ss1):
+  book: jamb
+  salesChannel: cat
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 1032
+
+SalesSummary(jamb-cat-ss2):
+  book: jamb
+  salesChannel: cat
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 985
+
+SalesSummary(jamb-cat-ss3):
+  book: jamb
+  salesChannel: cat
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 862
+
+SalesSummary(jamb-cat-ss4):
+  book: jamb
+  salesChannel: cat
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 874
+
+SalesSummary(jamb-cat-ss5):
+  book: jamb
+  salesChannel: cat
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 1201
+
+SalesSummary(jamb-dir-ss1):
+  book: jamb
+  salesChannel: dir
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 2021
+
+SalesSummary(jamb-dir-ss2):
+  book: jamb
+  salesChannel: dir
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 1440
+
+SalesSummary(jamb-dir-ss3):
+  book: jamb
+  salesChannel: dir
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 1261
+
+SalesSummary(jamb-dir-ss4):
+  book: jamb
+  salesChannel: dir
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 1136
+
+SalesSummary(jamb-dir-ss5):
+  book: jamb
+  salesChannel: dir
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 2400
+
+SalesSummary(jamb-web-ss1):
+  book: jamb
+  salesChannel: web
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 1785
+
+SalesSummary(jamb-web-ss2):
+  book: jamb
+  salesChannel: web
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 1563
+
+SalesSummary(jamb-web-ss3):
+  book: jamb
+  salesChannel: web
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 1245
+
+SalesSummary(jamb-web-ss4):
+  book: jamb
+  salesChannel: web
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 802
+
+SalesSummary(jamb-web-ss5):
+  book: jamb
+  salesChannel: web
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 603
+
+SalesSummary(bosc-cat-ss1):
+  book: bosc
+  salesChannel: cat
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 152
+
+SalesSummary(bosc-cat-ss2):
+  book: bosc
+  salesChannel: cat
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 236
+
+SalesSummary(bosc-cat-ss3):
+  book: bosc
+  salesChannel: cat
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 856
+
+SalesSummary(bosc-cat-ss4):
+  book: bosc
+  salesChannel: cat
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 756
+
+SalesSummary(bosc-cat-ss5):
+  book: bosc
+  salesChannel: cat
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 92
+
+SalesSummary(bosc-dir-ss1):
+  book: bosc
+  salesChannel: dir
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 203
+
+SalesSummary(bosc-dir-ss2):
+  book: bosc
+  salesChannel: dir
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 704
+
+SalesSummary(bosc-dir-ss3):
+  book: bosc
+  salesChannel: dir
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 788
+
+SalesSummary(bosc-dir-ss4):
+  book: bosc
+  salesChannel: dir
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 524
+
+SalesSummary(bosc-dir-ss5):
+  book: bosc
+  salesChannel: dir
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 739
+
+SalesSummary(bosc-web-ss1):
+  book: bosc
+  salesChannel: web
+  summaryDate: 2012-11-01 00:00:00
+  salesQuantity: 149
+
+SalesSummary(bosc-web-ss2):
+  book: bosc
+  salesChannel: web
+  summaryDate: 2012-12-01 00:00:00
+  salesQuantity: 306
+
+SalesSummary(bosc-web-ss3):
+  book: bosc
+  salesChannel: web
+  summaryDate: 2013-01-01 00:00:00
+  salesQuantity: 405
+
+SalesSummary(bosc-web-ss4):
+  book: bosc
+  salesChannel: web
+  summaryDate: 2013-02-01 00:00:00
+  salesQuantity: 205
+
+SalesSummary(bosc-web-ss5):
+  book: bosc
+  salesChannel: web
+  summaryDate: 2013-03-01 00:00:00
+  salesQuantity: 392
