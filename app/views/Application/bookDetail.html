@@ -34,7 +34,7 @@
     </ul>
     
     <div class="tab-content">
-      <div class = "well">
+      <div class="well">
         <div id="chart" style="height:200px;"></div>
       </div>
 
@@ -43,28 +43,28 @@
           <tr>
               <td>Total Unit Sales</td>
             #{if selectedSalesChannel == null}
-              <td>${book.getTotalUnitSales()}</td>
+              <td>${DataUtils.getTotalUnitSales(book)}</td>
             #{/if}
             #{else}
-              <td>${book.getTotalUnitSales(selectedSalesChannel.tag)}</td>
+              <td>${DataUtils.getTotalUnitSales(book, selectedSalesChannel)}</td>
             #{/else}
           </tr>
           <tr>
               <td>Total Purchase Cost</td>
             #{if selectedSalesChannel == null}
-              <td>${book.getCurrencyFormatTotalPurchaseCost()}</td>
+              <td>${DataUtils.getCurrencyFormatTotalPurchaseCost(book)}</td>
             #{/if}
             #{else}
-              <td>${book.getCurrencyFormatTotalPurchaseCost(selectedSalesChannel.tag)}</td>
+              <td>${DataUtils.getCurrencyFormatTotalPurchaseCost(book, selectedSalesChannel)}</td>
             #{/else}
           </tr>
           <tr>
               <td>Total Sales Revenue</td>
             #{if selectedSalesChannel == null}
-              <td>${book.getCurrencyFormatTotalSalesRevenue()}</td>
+              <td>${DataUtils.getCurrencyFormatTotalSalesRevenue(book)}</td>
             #{/if}
             #{else}
-              <td>${book.getCurrencyFormatTotalSalesRevenue(selectedSalesChannel.tag)}</td>
+              <td>${DataUtils.getCurrencyFormatTotalSalesRevenue(book, selectedSalesChannel)}</td>
             #{/else}
           </tr>
           <tr>
@@ -75,19 +75,19 @@
                   #{/if}
               </td>
             #{if selectedSalesChannel == null}
-              <td>${book.getCurrencyFormatCostsEstimate()}</td>
+              <td>${DataUtils.getCurrencyFormatCostsEstimate(book)}</td>
             #{/if}
             #{else}
-              <td>${book.getCurrencyFormatCostsEstimate(selectedSalesChannel.tag)}</td>
+              <td>${DataUtils.getCurrencyFormatCostsEstimate(book, selectedSalesChannel)}</td>
             #{/else}
           </tr>
           <tr class="success">
               <td>Profit</td>
             #{if selectedSalesChannel == null}
-              <td>${book.getCurrencyFormatProfit()}</td>
+              <td>${DataUtils.getCurrencyFormatProfit(book)}</td>
             #{/if}
             #{else}
-              <td>${book.getCurrencyFormatProfit(selectedSalesChannel.tag)}</td>
+              <td>${DataUtils.getCurrencyFormatProfit(book, selectedSalesChannel)}</td>
             #{/else}
           </tr>
         </tbody>

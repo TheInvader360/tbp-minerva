@@ -20,9 +20,9 @@ git bash
 windows shell
 
 * cd to application base dir
-* play install search-head
-* play dependencies
-* play eclipsify
+* play install search-head (if not aleady installed)
+* play deps
+* play ec
 
 eclipse
 
@@ -32,3 +32,4 @@ eclipse
 browser
 
 * localhost:9000
+* localhost:9000/admin/

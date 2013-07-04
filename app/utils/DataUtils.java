@@ -8,6 +8,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import javax.persistence.Query;
+
+import play.db.jpa.JPA;
+
 import models.Book;
 import models.SalesChannel;
 import models.SalesSummary;
@@ -49,5 +53,85 @@ public class DataUtils {
 		}
 
 		return points;
+	}
+	
+	public int getTotalUnitSales(Book book) {
+		Query q = JPA.em().createQuery("SELECT SUM(ss.salesQuantity) FROM SalesSummary ss INNER JOIN ss.salesChannel sc WHERE book_id = "+book.id);
+		Long sum = (Long) q.getSingleResult();
+		if (sum == null) sum = 0l;
+		return sum.intValue();
+	}
+	
+	public double getTotalPurchaseCost(Book book) {
+		return getTotalUnitSales(book) * book.purchasePrice;
+	}
+	
+	public String getCurrencyFormatTotalPurchaseCost(Book book) {
+		return CurrencyUtils.currencyFormat(getTotalPurchaseCost(book), "GBP");
+	}
+	
+	public double getTotalSalesRevenue(Book book) {
+		return getTotalUnitSales(book) * book.salePrice;
+	}
+	
+	public String getCurrencyFormatTotalSalesRevenue(Book book) {
+		return CurrencyUtils.currencyFormat(getTotalSalesRevenue(book), "GBP");
+	}
+	
+	public double getCostsEstimate(Book book) {
+		// Iterate through all sales channels and return the sum of all cost estimates
+		double total = 0;
+		List<SalesChannel> allSalesChannels = SalesChannel.find("order by tag asc").fetch();
+		Iterator<SalesChannel> i = allSalesChannels.iterator();
+		while (i.hasNext()) {
+			SalesChannel sc = i.next();
+			total += getCostsEstimate(book, sc);
+		}
+		return total;
+	}
+	public String getCurrencyFormatCostsEstimate(Book book) {
+		return CurrencyUtils.currencyFormat(getCostsEstimate(book), "GBP");
+	}
+	
+	public double getProfit(Book book) {
+		return getTotalSalesRevenue(book) - (getTotalPurchaseCost(book) + getCostsEstimate(book));
+	}
+	public String getCurrencyFormatProfit(Book book) {
+		return CurrencyUtils.currencyFormat(getProfit(book), "GBP");
+	}
+	
+	public int getTotalUnitSales(Book book, SalesChannel salesChannel) {
+		Query q = JPA.em().createQuery("SELECT SUM(ss.salesQuantity) FROM SalesSummary ss INNER JOIN ss.salesChannel sc WHERE sc.tag = '"+salesChannel.tag+"' AND book_id = "+book.id);
+		Long sum = (Long) q.getSingleResult();
+		if (sum == null) sum = 0l;
+		return sum.intValue();
+	}
+	
+	public double getTotalPurchaseCost(Book book, SalesChannel salesChannel) {
+		return getTotalUnitSales(book, salesChannel) * book.purchasePrice;
+	}
+	public String getCurrencyFormatTotalPurchaseCost(Book book, SalesChannel salesChannel) {
+		return CurrencyUtils.currencyFormat(getTotalPurchaseCost(book, salesChannel), "GBP");
+	}
+	
+	public double getTotalSalesRevenue(Book book, SalesChannel salesChannel) {
+		return getTotalUnitSales(book, salesChannel) * book.salePrice;
+	}
+	public String getCurrencyFormatTotalSalesRevenue(Book book, SalesChannel salesChannel) {
+		return CurrencyUtils.currencyFormat(getTotalSalesRevenue(book, salesChannel), "GBP");
+	}
+
+	public double getCostsEstimate(Book book, SalesChannel salesChannel) {
+		return getTotalSalesRevenue(book, salesChannel) * (salesChannel.costPercentage / 100d);
+	}
+	public String getCurrencyFormatCostsEstimate(Book book, SalesChannel salesChannel) {
+		return CurrencyUtils.currencyFormat(getCostsEstimate(book, salesChannel), "GBP");
+	}
+	
+	public double getProfit(Book book, SalesChannel salesChannel) {
+		return getTotalSalesRevenue(book, salesChannel) - (getTotalPurchaseCost(book, salesChannel) + getCostsEstimate(book, salesChannel));
+	}
+	public String getCurrencyFormatProfit(Book book, SalesChannel salesChannel) {
+		return CurrencyUtils.currencyFormat(getProfit(book, salesChannel), "GBP");
 	}
 }
